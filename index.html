@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>静心小筑</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 主页 -->
+    <div id="home-page" class="page active">
+        <div class="home-container">
+            <div class="greeting-section">
+                <div class="welcome-icon">🍃</div>
+                <h1 class="main-title">你来了</h1>
+                <div class="care-messages">
+                    <p class="care-line">累了吧</p>
+                    <p class="care-line">生活很辛苦吧</p>
+                    <p class="care-line">心里是不是装着什么事</p>
+                    <p class="care-line">迷茫、焦虑，还是难以抉择</p>
+                </div>
+                <div class="comfort-message">
+                    <p>没关系，在这里停一停</p>
+                    <p>让心安静下来，听听内心的声音</p>
+                </div>
+            </div>
+            
+            <div class="modules-section">
+                <p class="modules-hint">选择一个方式，开始你的静心之旅</p>
+                <div class="modules-grid">
+                    <div class="module-card" onclick="navigateTo('maoxuan')">
+                        <div class="module-icon">📖</div>
+                        <h3>智慧语录</h3>
+                        <p>他走过比你想象中更难的路<br>留下了一些话，也许今天正好适合你</p>
+                    </div>
+                    
+                    <div class="module-card" onclick="navigateTo('answerbook')">
+                        <div class="module-icon">📖</div>
+                        <h3>答案之书</h3>
+                        <p>心中默念你的问题<br>让答案浮现</p>
+                    </div>
+                    
+                    <div class="module-card" onclick="navigateTo('tarot')">
+                        <div class="module-icon">🔮</div>
+                        <h3>塔罗指引</h3>
+                        <p>凝视水晶球<br>探索过去·现在·未来</p>
+                    </div>
+                    
+                    <div class="module-card" onclick="navigateTo('avatar')">
+                        <div class="module-icon">🎋</div>
+                        <h3>名人对话</h3>
+                        <p>与智者对话<br>获得独特的视角</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 智慧语录模块 -->
+    <div id="maoxuan-page" class="page">
+        <div class="maoxuan-container">
+            <button class="back-btn" onclick="navigateTo('home')">← 返回</button>
+            
+            <!-- 引导页1 -->
+            <div id="maoxuan-guide-1" class="guide-page">
+                <div class="guide-text-container">
+                    <p class="guide-line" data-delay="0">嘿，先停一停。</p>
+                    <p class="guide-line" data-delay="400">你最近是不是有些累了？</p>
+                    <p class="guide-line" data-delay="800">睡不好，想太多，有些事反复在心里绕？</p>
+                    <p class="guide-line" data-delay="1400">不管是工作、关系、方向感的丢失，</p>
+                    <p class="guide-line" data-delay="1900">还是那种说不清楚的低沉——</p>
+                    <p class="guide-line" data-delay="2400">你不是一个人在扛。</p>
+                    <p class="guide-line" data-delay="2900">这里有一个人，走过了比你想象中更艰难的岁月，</p>
+                    <p class="guide-line" data-delay="3500">他留下了一些话。</p>
+                    <p class="guide-line highlight" data-delay="4000">也许其中一句，正是你今天需要听到的。</p>
+                </div>
+                <button class="guide-btn" id="guide-btn-1" onclick="showGuide2()" style="opacity: 0; pointer-events: none;">
+                    我想看看 →
+                </button>
+            </div>
+            
+            <!-- 引导页2 -->
+            <div id="maoxuan-guide-2" class="guide-page hidden">
+                <div class="guide-text-container">
+                    <p class="guide-line" data-delay="0">闭上眼睛一秒钟</p>
+                    <p class="guide-line" data-delay="500">想一想你现在最在意的那件事——</p>
+                    <p class="guide-line" data-delay="1000">那个压着你的，是什么？</p>
+                    <p class="guide-line hint" data-delay="1600">也许想不清楚也没关系，</p>
+                    <p class="guide-line action" data-delay="2100">点这里继续</p>
+                </div>
+                <button class="guide-btn pulse" id="guide-btn-2" onclick="showCardSection()" style="opacity: 0; pointer-events: none;">
+                    继续 →
+                </button>
+            </div>
+            
+            <!-- 主内容区 -->
+            <div id="maoxuan-main" class="maoxuan-main hidden">
+                <div class="maoxuan-header">
+                    <h1>智慧语录</h1>
+                    <p class="subtitle">在文字中寻找平静与力量</p>
+                </div>
+                
+                <div class="card-display-area" onclick="drawCard()">
+                    <div id="card-container" class="card-container">
+                        <div class="card-back">
+                            <div class="card-pattern"></div>
+                            <p class="draw-hint">轻触开启</p>
+                        </div>
+                        <div id="quote-card" class="quote-card hidden">
+                            <div class="card-content">
+                                <div class="quote-text" id="quote-text"></div>
+                                <div class="quote-source" id="quote-source"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-actions">
+                    <button class="action-btn" onclick="drawCard()">再抽一张</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 塔罗牌模块 -->
+    <div id="tarot-page" class="page">
+        <div class="tarot-container">
+            <button class="back-btn" onclick="navigateTo('home')">← 返回</button>
+            
+            <div class="tarot-header">
+                <h1>塔罗指引</h1>
+                <p class="subtitle">在静谧中聆听内心的声音</p>
+            </div>
+            
+            <div id="tarot-intro" class="tarot-intro">
+                <div class="crystal-ball-container" onclick="startTarotReading()">
+                    <div class="crystal-ball">
+                        <div class="ball-inner">
+                            <div class="nebula"></div>
+                            <div class="stars"></div>
+                        </div>
+                        <div class="ball-glow"></div>
+                        <div class="ball-highlight"></div>
+                    </div>
+                    <div class="ball-stand"></div>
+                </div>
+                <p class="crystal-hint">凝视水晶球，在心中默念你的问题</p>
+                <p class="crystal-hint-sub">轻触水晶球开始</p>
+            </div>
+            
+            <div id="tarot-reading" class="tarot-reading hidden">
+                <div class="reading-progress">
+                    <div class="step-indicator">
+                        <span class="step active" id="step-1">1</span>
+                        <span class="step" id="step-2">2</span>
+                        <span class="step" id="step-3">3</span>
+                    </div>
+                    <p class="step-instruction" id="step-instruction">深呼吸，在心中默念你的问题</p>
+                </div>
+                
+                <div class="card-selection" id="card-selection">
+                    <div class="deck-container">
+                        <div class="tarot-deck" onclick="selectCard(0)">
+                            <div class="deck-card">
+                                <div class="grid-pattern"></div>
+                                <div class="border-frame"></div>
+                                <div class="corner-star"></div>
+                                <div class="center-symbol">✦</div>
+                            </div>
+                        </div>
+                        <div class="tarot-deck" onclick="selectCard(1)">
+                            <div class="deck-card">
+                                <div class="grid-pattern"></div>
+                                <div class="border-frame"></div>
+                                <div class="corner-star"></div>
+                                <div class="center-symbol">✦</div>
+                            </div>
+                        </div>
+                        <div class="tarot-deck" onclick="selectCard(2)">
+                            <div class="deck-card">
+                                <div class="grid-pattern"></div>
+                                <div class="border-frame"></div>
+                                <div class="corner-star"></div>
+                                <div class="center-symbol">✦</div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="selection-hint">选择一张与你共鸣的牌</p>
+                </div>
+                
+                <div class="spread-display hidden" id="spread-display">
+                    <div class="spread-card" id="past-card">
+                        <div class="position-label">过 去</div>
+                        <div class="card-slot"></div>
+                        <div class="card-meaning"></div>
+                    </div>
+                    <div class="spread-card" id="present-card">
+                        <div class="position-label">现 在</div>
+                        <div class="card-slot"></div>
+                        <div class="card-meaning"></div>
+                    </div>
+                    <div class="spread-card" id="future-card">
+                        <div class="position-label">未 来</div>
+                        <div class="card-slot"></div>
+                        <div class="card-meaning"></div>
+                    </div>
+                </div>
+                
+                <div class="reading-result hidden" id="reading-result">
+                    <h3>牌阵解读</h3>
+                    <div class="interpretation" id="interpretation"></div>
+                    <button class="action-btn" onclick="resetTarot()">再次占卜</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 答案之书模块 -->
+    <div id="answerbook-page" class="page">
+        <div class="answerbook-container">
+            <button class="back-btn" onclick="navigateTo('home')">← 返回</button>
+            
+            <div class="answerbook-header">
+                <h1>答案之书</h1>
+                <p class="subtitle">心中默念你的问题，让答案浮现</p>
+            </div>
+            
+            <!-- 引导阶段 -->
+            <div id="answerbook-intro" class="answerbook-intro">
+                <p class="intro-text">闭上眼睛，深呼吸</p>
+                <p class="intro-text">在心中默念你此刻最想知道答案的问题</p>
+                <p class="intro-text hint">然后轻触下方的魔法书</p>
+            </div>
+            
+            <!-- 魔法书 -->
+            <div class="magic-book-container" id="magic-book" onclick="openAnswerBook()">
+                <div class="magic-book">
+                    <div class="book-cover">
+                        <div class="book-spine"></div>
+                        <div class="book-title">?</div>
+                        <div class="book-glow"></div>
+                    </div>
+                    <div class="book-pages">
+                        <div class="page-left"></div>
+                        <div class="page-right"></div>
+                    </div>
+                </div>
+                <p class="book-hint">轻触开启</p>
+            </div>
+            
+            <!-- 答案展示 -->
+            <div id="answer-display" class="answer-display hidden">
+                <div class="answer-glow"></div>
+                <p class="answer-text" id="answer-text"></p>
+                <button class="action-btn" onclick="resetAnswerBook()">再问一次</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 名人对话模块 -->
+    <div id="avatar-page" class="page">
+        <div class="avatar-container">
+            <button class="back-btn" onclick="navigateTo('home')">← 返回</button>
+            
+            <div class="avatar-header">
+                <h1>名人对话</h1>
+                <p class="subtitle">与智者对话，获得心灵的启发</p>
+            </div>
+            
+            <div class="avatar-selection">
+                <p class="selection-guide">选择一位你想对话的智者</p>
+                <div class="avatar-grid">
+                    <div class="avatar-card" onclick="selectAvatar('qsh')">
+                        <div class="avatar-image">👑</div>
+                        <h4>秦始皇</h4>
+                        <p>霸气威严，决断果敢</p>
+                    </div>
+                    <div class="avatar-card" onclick="selectAvatar('swk')">
+                        <div class="avatar-image">🐵</div>
+                        <h4>孙悟空</h4>
+                        <p>桀骜不驯，无所畏惧</p>
+                    </div>
+                    <div class="avatar-card" onclick="selectAvatar('msk')">
+                        <div class="avatar-image">🚀</div>
+                        <h4>马斯克</h4>
+                        <p>创新突破，改变未来</p>
+                    </div>
+                    <div class="avatar-card" onclick="selectAvatar('lbd')">
+                        <div class="avatar-image">🍶</div>
+                        <h4>李白</h4>
+                        <p>豪放浪漫，诗意人生</p>
+                    </div>
+                    <div class="avatar-card" onclick="selectAvatar('zz')">
+                        <div class="avatar-image">🎋</div>
+                        <h4>诸葛亮</h4>
+                        <p>运筹帷幄，智慧深远</p>
+                    </div>
+                    <div class="avatar-card" onclick="selectAvatar('lz')">
+                        <div class="avatar-image">☯️</div>
+                        <h4>老子</h4>
+                        <p>道法自然，无为而治</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="chat-interface hidden" id="chat-interface">
+                <div class="chat-header">
+                    <div class="current-avatar" id="current-avatar"></div>
+                    <span id="avatar-name"></span>
+                </div>
+                <div class="chat-messages" id="chat-messages">
+                    <div class="message system">
+                        <p>请输入你的问题，我会用他们的风格回应你</p>
+                    </div>
+                </div>
+                <div class="chat-input-area">
+                    <input type="text" id="user-input" placeholder="写下你的问题..." maxlength="50">
+                    <button onclick="sendMessage()">发送</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
