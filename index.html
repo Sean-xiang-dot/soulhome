@@ -8,6 +8,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- 主题切换按钮 -->
+    <div class="theme-toggle" onclick="toggleTheme()" title="切换主题">
+        <span class="theme-icon">🌙</span>
+        <span class="theme-label">星空</span>
+    </div>
+    
     <!-- 主页 -->
     <div id="home-page" class="page active">
         <div class="home-container">
@@ -52,6 +58,50 @@
                         <h3>名人对话</h3>
                         <p>与智者对话<br>获得独特的视角</p>
                     </div>
+                    
+                    <div class="module-card" onclick="navigateTo('favorites')">
+                        <div class="module-icon">❤️</div>
+                        <h3>我的收藏</h3>
+                        <p>保存你喜爱的语录、卡牌与答案<br>随时翻阅心灵的记忆</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 我的收藏模块 -->
+    <div id="favorites-page" class="page">
+        <div class="favorites-container">
+            <button class="back-btn" onclick="navigateTo('home')">← 返回</button>
+            
+            <div class="favorites-header">
+                <h1>我的收藏</h1>
+                <p class="subtitle">心灵的记忆库</p>
+            </div>
+            
+            <div class="favorites-tabs">
+                <button class="tab-btn active" onclick="switchFavTab('quotes')">📖 语录</button>
+                <button class="tab-btn" onclick="switchFavTab('tarot')">🔮 塔罗</button>
+                <button class="tab-btn" onclick="switchFavTab('answers')">📖 答案</button>
+                <button class="tab-btn" onclick="switchFavTab('chats')">💬 对话</button>
+            </div>
+            
+            <div class="favorites-content">
+                <div id="fav-quotes" class="fav-tab active">
+                    <div class="fav-list" id="fav-quotes-list"></div>
+                    <p class="empty-message" id="empty-quotes">还没有收藏语录，去智慧语录抽一张吧</p>
+                </div>
+                <div id="fav-tarot" class="fav-tab">
+                    <div class="fav-list" id="fav-tarot-list"></div>
+                    <p class="empty-message" id="empty-tarot">还没有收藏塔罗牌，去塔罗指引探索吧</p>
+                </div>
+                <div id="fav-answers" class="fav-tab">
+                    <div class="fav-list" id="fav-answers-list"></div>
+                    <p class="empty-message" id="empty-answers">还没有收藏答案，去答案之书寻找吧</p>
+                </div>
+                <div id="fav-chats" class="fav-tab">
+                    <div class="fav-list" id="fav-chats-list"></div>
+                    <p class="empty-message" id="empty-chats">还没有收藏对话，去名人对话交流吧</p>
                 </div>
             </div>
         </div>
@@ -118,6 +168,7 @@
                 
                 <div class="card-actions">
                     <button class="action-btn" onclick="drawCard()">再抽一张</button>
+                    <button class="action-btn fav-btn" id="quote-fav-btn" onclick="toggleFavorite('quote', currentQuoteIndex)" title="收藏">♥ 收藏</button>
                 </div>
             </div>
         </div>
@@ -210,7 +261,10 @@
                 <div class="reading-result hidden" id="reading-result">
                     <h3>牌阵解读</h3>
                     <div class="interpretation" id="interpretation"></div>
-                    <button class="action-btn" onclick="resetTarot()">再次占卜</button>
+                    <div style="display: flex; gap: 15px; margin-top: 30px;">
+                        <button class="action-btn" onclick="resetTarot()">再次占卜</button>
+                        <button class="action-btn fav-btn" id="tarot-fav-btn" onclick="toggleFavorite('tarot')" title="收藏">♥ 收藏</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -253,7 +307,10 @@
             <div id="answer-display" class="answer-display hidden">
                 <div class="answer-glow"></div>
                 <p class="answer-text" id="answer-text"></p>
-                <button class="action-btn" onclick="resetAnswerBook()">再问一次</button>
+                <div style="display: flex; gap: 15px; margin-top: 30px;">
+                    <button class="action-btn" onclick="resetAnswerBook()">再问一次</button>
+                    <button class="action-btn fav-btn" id="answer-fav-btn" onclick="toggleFavorite('answer')" title="收藏">♥ 收藏</button>
+                </div>
             </div>
         </div>
     </div>
@@ -317,12 +374,213 @@
                 <div class="chat-input-area">
                     <input type="text" id="user-input" placeholder="写下你的问题..." maxlength="50">
                     <button onclick="sendMessage()">发送</button>
+                    <button class="fav-btn" id="chat-fav-btn" onclick="toggleFavorite('chat')" title="收藏">♥</button>
                 </div>
             </div>
         </div>
     </div>
 
     <script src="js/data.js"></script>
+    <script src="js/themes.js"></script>
     <script src="js/app.js"></script>
+    
+    <!-- 收藏功能脚本 -->
+    <script>
+// ==================== 收藏功能系统 ====================
+
+const FAVORITES_STORAGE_KEY = 'soulhome_favorites';
+
+function getFavoritesFromStorage(type) {
+    const all = JSON.parse(localStorage.getItem(FAVORITES_STORAGE_KEY) || '{}');
+    return all[type] || [];
+}
+
+function saveFavoritesToStorage(type, list) {
+    const all = JSON.parse(localStorage.getItem(FAVORITES_STORAGE_KEY) || '{}');
+    all[type] = list;
+    localStorage.setItem(FAVORITES_STORAGE_KEY, JSON.stringify(all));
+}
+
+function toggleFavorite(type) {
+    let favorites = getFavoritesFromStorage(type);
+    let currentItem = null;
+    
+    if (type === 'quote') {
+        const quoteText = document.querySelector('#quote-text')?.textContent || '';
+        const quoteAuthor = document.querySelector('#quote-source')?.textContent || '';
+        currentItem = { text: quoteText, author: quoteAuthor };
+    } else if (type === 'tarot') {
+        if (selectedCards && selectedCards.length > 0) {
+            currentItem = { cards: JSON.stringify(selectedCards) };
+        }
+    } else if (type === 'answer') {
+        const answerText = document.querySelector('#answer-text')?.textContent || '';
+        currentItem = { text: answerText };
+    } else if (type === 'chat') {
+        const messages = document.querySelectorAll('#chat-messages .message');
+        if (messages.length > 0) {
+            const allText = Array.from(messages).map(m => m.textContent).join('\n');
+            currentItem = { chat: allText };
+        }
+    }
+    
+    if (!currentItem || (!currentItem.text && !currentItem.name && !currentItem.chat && !currentItem.cards)) {
+        alert('请先生成内容后再收藏');
+        return;
+    }
+    
+    const key = type === 'tarot' ? 'cards' : (type === 'quote' ? 'text' : type === 'answer' ? 'text' : 'chat');
+    const checkValue = type === 'tarot' ? currentItem.cards : 
+                      type === 'quote' ? currentItem.text :
+                      type === 'answer' ? currentItem.text : currentItem.chat;
+    
+    const index = favorites.findIndex(fav => {
+        if (type === 'tarot') return fav.cards === checkValue;
+        if (type === 'quote') return fav.text === checkValue;
+        if (type === 'answer') return fav.text === checkValue;
+        if (type === 'chat') return fav.chat === checkValue;
+        return false;
+    });
+    
+    if (index > -1) {
+        favorites.splice(index, 1);
+    } else {
+        currentItem.timestamp = new Date().toLocaleString('zh-CN');
+        favorites.push(currentItem);
+    }
+    
+    saveFavoritesToStorage(type, favorites);
+    updateFavBtnState(type);
+    
+    const isAdded = index === -1;
+    alert(isAdded ? '已收藏 💛' : '已取消收藏');
+}
+
+function updateFavBtnState(type) {
+    const btnId = type === 'quote' ? 'quote-fav-btn' : 
+                  type === 'tarot' ? 'tarot-fav-btn' : 
+                  type === 'answer' ? 'answer-fav-btn' : 'chat-fav-btn';
+    const btn = document.getElementById(btnId);
+    
+    if (!btn) return;
+    
+    let favorites = getFavoritesFromStorage(type);
+    let isFavorited = false;
+    
+    if (type === 'quote') {
+        const quoteText = document.querySelector('#quote-text')?.textContent || '';
+        isFavorited = favorites.some(fav => fav.text === quoteText);
+    } else if (type === 'tarot' && selectedCards && selectedCards.length > 0) {
+        const cardsStr = JSON.stringify(selectedCards);
+        isFavorited = favorites.some(fav => fav.cards === cardsStr);
+    } else if (type === 'answer') {
+        const answerText = document.querySelector('#answer-text')?.textContent || '';
+        isFavorited = favorites.some(fav => fav.text === answerText);
+    }
+    
+    if (isFavorited) {
+        btn.classList.add('active');
+        btn.textContent = '❤️ 已收藏';
+    } else {
+        btn.classList.remove('active');
+        btn.textContent = '💛 收藏';
+    }
+}
+
+function switchFavTab(tab) {
+    document.querySelectorAll('.fav-tab').forEach(t => t.classList.remove('active'));
+    event.target.classList.add('active');
+    renderFavorites(tab);
+}
+
+function renderFavorites(tab) {
+    const listContainer = document.getElementById('fav-list');
+    if (!listContainer) return;
+    
+    const favorites = getFavoritesFromStorage(tab);
+    
+    if (favorites.length === 0) {
+        listContainer.innerHTML = `
+            <div class="fav-empty" style="grid-column: 1/-1;">
+                <div class="fav-empty-icon">📭</div>
+                <div class="fav-empty-text">还没有收藏呢，快去开启新的发现吧~</div>
+            </div>
+        `;
+        return;
+    }
+    
+    listContainer.innerHTML = '';
+    
+    favorites.forEach((fav, index) => {
+        const item = document.createElement('div');
+        item.className = 'fav-item';
+        
+        let content = '';
+        if (tab === 'quote') {
+            content = `
+                <div class="fav-item-content">
+                    <p class="fav-item-text">"${fav.text}"</p>
+                    <p class="fav-item-meta">— ${fav.author || '未知来源'}</p>
+                    <p class="fav-item-meta">收藏于 ${fav.timestamp}</p>
+                </div>
+            `;
+        } else if (tab === 'tarot') {
+            try {
+                const cards = JSON.parse(fav.cards);
+                const cardNames = cards.map(c => c.name).join(' → ');
+                content = `
+                    <div class="fav-item-content">
+                        <p class="fav-item-meta" style="font-size: 1.2rem; font-weight: bold;">✨ 牌阵 ✨</p>
+                        <p class="fav-item-text">${cardNames}</p>
+                        <p class="fav-item-meta">收藏于 ${fav.timestamp}</p>
+                    </div>
+                `;
+            } catch (e) {
+                content = '<div class="fav-item-content"><p class="fav-item-text">牌阵数据</p></div>';
+            }
+        } else if (tab === 'answer') {
+            content = `
+                <div class="fav-item-content">
+                    <p class="fav-item-text">"${fav.text}"</p>
+                    <p class="fav-item-meta">收藏于 ${fav.timestamp}</p>
+                </div>
+            `;
+        } else if (tab === 'chat') {
+            const preview = fav.chat.substring(0, 80) + (fav.chat.length > 80 ? '...' : '');
+            content = `
+                <div class="fav-item-content">
+                    <p class="fav-item-text">${preview}</p>
+                    <p class="fav-item-meta">收藏于 ${fav.timestamp}</p>
+                </div>
+            `;
+        }
+        
+        item.innerHTML = content + `
+            <div class="fav-item-actions">
+                <button class="fav-delete-btn" onclick="deleteFavorite('${tab}', ${index})">删除</button>
+            </div>
+        `;
+        
+        listContainer.appendChild(item);
+    });
+}
+
+function deleteFavorite(type, index) {
+    if (confirm('确定要删除这条收藏吗？')) {
+        let favorites = getFavoritesFromStorage(type);
+        favorites.splice(index, 1);
+        saveFavoritesToStorage(type, favorites);
+        renderFavorites(type);
+    }
+}
+
+function showFavorites() {
+    navigateTo('favorites');
+    renderFavorites('quote');
+    document.querySelectorAll('.fav-tab').forEach(t => t.classList.remove('active'));
+    const quoteTab = Array.from(document.querySelectorAll('.fav-tab')).find(t => t.textContent.includes('语录'));
+    if (quoteTab) quoteTab.classList.add('active');
+}
+    </script>
 </body>
 </html>

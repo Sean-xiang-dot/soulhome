@@ -42,205 +42,38 @@ function navigateTo(page) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// ==================== 星空特效系统 ====================
+// ==================== 星空特效系统（由 themes.js 管理） ====================
 
-// 创建流星
+// 创建流星（themes.js 调用）
 function createShootingStar() {
     const star = document.createElement('div');
     star.className = 'shooting-star';
-    
-    // 随机起始位置（从屏幕上方或右侧开始）
     const startX = Math.random() * window.innerWidth + 200;
     const startY = Math.random() * window.innerHeight * 0.3 - 100;
-    
     star.style.left = startX + 'px';
     star.style.top = startY + 'px';
-    
     document.body.appendChild(star);
-    
-    // 动画结束后移除
-    setTimeout(() => {
-        star.remove();
-    }, 3000);
+    setTimeout(() => star.remove(), 3000);
 }
 
-// 创建漂浮粒子
+// 创建漂浮粒子（themes.js 调用）
 function createFloatingParticle() {
     const particle = document.createElement('div');
     particle.className = 'floating-particle';
-    
     const x = Math.random() * window.innerWidth;
     const y = Math.random() * window.innerHeight;
     const size = Math.random() * 4 + 2;
     const duration = Math.random() * 4 + 6;
-    
     particle.style.left = x + 'px';
     particle.style.top = y + 'px';
     particle.style.width = size + 'px';
     particle.style.height = size + 'px';
     particle.style.animationDuration = duration + 's';
-    
     document.body.appendChild(particle);
-    
-    // 一段时间后移除
-    setTimeout(() => {
-        particle.remove();
-    }, duration * 1000);
+    setTimeout(() => particle.remove(), duration * 1000);
 }
 
-// 初始化星空特效
-function initStarEffects() {
-    // 定期创建流星
-    setInterval(() => {
-        if (Math.random() > 0.6) {
-            createShootingStar();
-        }
-    }, 3000);
-    
-    // 创建初始漂浮粒子
-    for (let i = 0; i < 15; i++) {
-        setTimeout(() => createFloatingParticle(), i * 200);
-    }
-    
-    // 持续创建新粒子
-    setInterval(() => {
-        if (document.querySelectorAll('.floating-particle').length < 20) {
-            createFloatingParticle();
-        }
-    }, 2000);
-}
-
-// ==================== 鼠标粒子追随特效 ====================
-
-// 注入粒子动画样式
-const mouseParticleStyle = document.createElement('style');
-mouseParticleStyle.textContent = `
-    .mouse-particle {
-        position: fixed;
-        pointer-events: none;
-        z-index: 9999;
-        border-radius: 50%;
-        transform: translate(-50%, -50%);
-        animation: mouseParticleFade var(--dur, 0.8s) ease forwards;
-    }
-    @keyframes mouseParticleFade {
-        0%   { transform: translate(-50%, -50%) scale(1);   opacity: var(--op, 0.9); }
-        100% { transform: translate(calc(-50% + var(--dx, 0px)), calc(-50% + var(--dy, 0px))) scale(0); opacity: 0; }
-    }
-    .mouse-trail {
-        position: fixed;
-        pointer-events: none;
-        z-index: 9998;
-        border-radius: 50%;
-        transform: translate(-50%, -50%);
-        animation: trailFade 0.4s ease forwards;
-    }
-    @keyframes trailFade {
-        0%   { transform: translate(-50%, -50%) scale(1); opacity: 0.35; }
-        100% { transform: translate(-50%, -50%) scale(0.3); opacity: 0; }
-    }
-    @keyframes sparkleFade {
-        0% { transform: scale(1); opacity: 1; }
-        100% { transform: scale(0); opacity: 0; }
-    }
-`;
-document.head.appendChild(mouseParticleStyle);
-
-// 粒子颜色池：星光白、星银、金色、紫色、蓝光
-const PARTICLE_COLORS = [
-    'rgba(255, 255, 255, VAL)',
-    'rgba(200, 200, 255, VAL)',
-    'rgba(255, 215, 0, VAL)',
-    'rgba(147, 112, 219, VAL)',
-    'rgba(100, 180, 255, VAL)',
-    'rgba(220, 180, 255, VAL)',
-];
-
-// 粒子形状：圆点 / 十字星 / 菱形
-const PARTICLE_SHAPES = ['circle', 'star4', 'diamond'];
-
-let lastX = 0, lastY = 0;
-let mouseSpeed = 0;
-let particleThrottle = 0;
-
-function createMouseParticle(x, y, speed) {
-    const count = speed > 8 ? 3 : speed > 3 ? 2 : 1;
-
-    for (let i = 0; i < count; i++) {
-        const el = document.createElement('div');
-        el.classList.add('mouse-particle');
-
-        // 随机参数
-        const size   = 2 + Math.random() * 5;          // 2~7px
-        const dur    = 0.5 + Math.random() * 0.7;       // 0.5~1.2s
-        const op     = 0.5 + Math.random() * 0.5;       // 0.5~1.0
-        const dx     = (Math.random() - 0.5) * 40;      // 漂移 X
-        const dy     = (Math.random() - 0.5) * 40 - 10; // 漂移 Y（略微上飘）
-        const colorTpl = PARTICLE_COLORS[Math.floor(Math.random() * PARTICLE_COLORS.length)];
-        const color  = colorTpl.replace('VAL', op.toFixed(2));
-
-        el.style.cssText = `
-            left: ${x + (Math.random() - 0.5) * 8}px;
-            top:  ${y + (Math.random() - 0.5) * 8}px;
-            width:  ${size}px;
-            height: ${size}px;
-            background: radial-gradient(circle, ${color}, transparent 70%);
-            box-shadow: 0 0 ${size * 2}px ${color};
-            --dur: ${dur}s;
-            --op:  ${op};
-            --dx:  ${dx}px;
-            --dy:  ${dy}px;
-        `;
-
-        // 偶尔加十字光晕
-        if (Math.random() > 0.7) {
-            el.style.boxShadow = `
-                0 0 ${size * 2}px ${color},
-                0 ${size * 1.5}px ${size}px transparent,
-                0 -${size * 1.5}px ${size}px transparent,
-                ${size * 1.5}px 0 ${size}px transparent,
-                -${size * 1.5}px 0 ${size}px transparent
-            `;
-        }
-
-        document.body.appendChild(el);
-        setTimeout(() => el.remove(), dur * 1000);
-    }
-}
-
-function createMouseTrail(x, y) {
-    const el = document.createElement('div');
-    el.classList.add('mouse-trail');
-    const size = 6 + Math.random() * 4;
-    el.style.cssText = `
-        left: ${x}px;
-        top:  ${y}px;
-        width:  ${size}px;
-        height: ${size}px;
-        background: radial-gradient(circle, rgba(147,112,219,0.4), transparent 70%);
-    `;
-    document.body.appendChild(el);
-    setTimeout(() => el.remove(), 400);
-}
-
-document.addEventListener('mousemove', (e) => {
-    const dx = e.clientX - lastX;
-    const dy = e.clientY - lastY;
-    mouseSpeed = Math.sqrt(dx * dx + dy * dy);
-    lastX = e.clientX;
-    lastY = e.clientY;
-
-    // 尾迹（始终生成，低频）
-    particleThrottle++;
-    if (particleThrottle % 2 === 0) {
-        createMouseTrail(e.clientX, e.clientY);
-    }
-
-    // 粒子（速度越快越多）
-    if (mouseSpeed > 1.5) {
-        createMouseParticle(e.clientX, e.clientY, mouseSpeed);
-    }
-});
+// 鼠标粒子系统已移至 themes.js
 
 // ==================== 智慧语录模块 - 星空古籍风 ====================
 
@@ -1013,6 +846,8 @@ function escapeHtml(text) {
     return div.innerHTML;
 }
 
+// 主题切换逻辑已移至 themes.js
+
 // 回车发送消息
 document.addEventListener('DOMContentLoaded', () => {
     const userInput = document.getElementById('user-input');
@@ -1034,8 +869,8 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
     document.head.appendChild(style);
     
-    // 初始化星空特效
-    initStarEffects();
+    // 初始化主题（themes.js）
+    initTheme();
 });
 
 // 返回按钮处理
