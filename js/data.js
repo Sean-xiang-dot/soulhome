@@ -1,597 +1,742 @@
-// 毛选语录数据 - 58句精选
+// ==================== 智慧语录数据 - 精选直击人心的句子 ====================
+// 重新筛选：每句都要能让人在迷茫/焦虑/纠结时产生"说的就是我"的感觉
 const maoQuotes = [
     {
-        text: "世上无难事，只要肯登攀。",
-        source: "《水调歌头·重上井冈山》",
-        meaning: "世界上没有办不到的事情，关键在于是否有决心和毅力去攀登。"
+        text: "前途是光明的，道路是曲折的。",
+        source: "《关于重庆谈判》",
+        meaning: "你现在走的弯路，不是白走的。每一段曲折，都是在靠近那个光明的出口。别因为路不直，就怀疑方向错了。"
     },
     {
         text: "星星之火，可以燎原。",
         source: "《星星之火，可以燎原》",
-        meaning: "微小的力量，只要坚持不懈，也能发展成巨大的声势。"
-    },
-    {
-        text: "战略上要藐视敌人，战术上要重视敌人。",
-        source: "《关于目前党的政策中的几个重要问题》",
-        meaning: "面对困难要有必胜的信心，但在具体行动上要谨慎对待。"
-    },
-    {
-        text: "下定决心，不怕牺牲，排除万难，去争取胜利。",
-        source: "《愚公移山》",
-        meaning: "一旦下定决心，就要勇往直前，克服一切困难。"
-    },
-    {
-        text: "一切反动派都是纸老虎。",
-        source: "《和美国记者安娜·路易斯·斯特朗的谈话》",
-        meaning: "看似强大的困难，其实并不可怕，只要敢于面对就能战胜。"
-    },
-    {
-        text: "没有调查，就没有发言权。",
-        source: "《反对本本主义》",
-        meaning: "不了解实际情况，就无法做出正确的判断和决策。"
-    },
-    {
-        text: "从群众中来，到群众中去。",
-        source: "《关于领导方法的若干问题》",
-        meaning: "要善于倾听和学习，把智慧集中起来，再回到实践中去。"
-    },
-    {
-        text: "事物总是一分为二的。",
-        source: "《党内团结的辩证方法》",
-        meaning: "任何事情都有两面性，要学会全面看待问题。"
-    },
-    {
-        text: "前途是光明的，道路是曲折的。",
-        source: "《关于重庆谈判》",
-        meaning: "虽然过程可能艰难，但只要坚持，终会迎来光明。"
-    },
-    {
-        text: "虚心使人进步，骄傲使人落后。",
-        source: "《中国共产党第八次全国代表大会开幕词》",
-        meaning: "保持谦逊的态度才能不断成长，自满只会停滞不前。"
-    },
-    {
-        text: "好好学习，天天向上。",
-        source: "为少年儿童题词",
-        meaning: "持续学习，每天都在进步，是人生最好的状态。"
-    },
-    {
-        text: "自己动手，丰衣足食。",
-        source: "为南泥湾题词",
-        meaning: "依靠自己的努力，就能创造美好的生活。"
-    },
-    {
-        text: "不打无准备之仗。",
-        source: "《论持久战》",
-        meaning: "做任何事情都要有所准备，才能提高成功的概率。"
-    },
-    {
-        text: "集中优势兵力，各个歼灭敌人。",
-        source: "《集中优势兵力，各个歼灭敌人》",
-        meaning: "把力量集中在关键点上，逐一解决问题。"
-    },
-    {
-        text: "百花齐放，百家争鸣。",
-        source: "《关于正确处理人民内部矛盾的问题》",
-        meaning: "包容不同的声音和想法，才能激发创造力。"
-    },
-    {
-        text: "实事求是。",
-        source: "《改造我们的学习》",
-        meaning: "从实际出发，探求事物的本质规律。"
-    },
-    {
-        text: "知无不言，言无不尽。",
-        source: "《论联合政府》",
-        meaning: "知道的就说，说了就说透彻，坦诚是最好的沟通。"
-    },
-    {
-        text: "惩前毖后，治病救人。",
-        source: "《整顿党的作风》",
-        meaning: "从过去的错误中吸取教训，帮助自己和他人成长。"
-    },
-    {
-        text: "百花齐放，推陈出新。",
-        source: "《在延安文艺座谈会上的讲话》",
-        meaning: "在继承中创新，在创新中发展。"
-    },
-    {
-        text: "团结—批评—团结。",
-        source: "《关于正确处理人民内部矛盾的问题》",
-        meaning: "通过坦诚的沟通解决问题，最终达到更好的团结。"
-    },
-    {
-        text: "凡是敌人反对的，我们就要拥护；凡是敌人拥护的，我们就要反对。",
-        source: "《和中央社、扫荡报、新民报三记者的谈话》",
-        meaning: "要有独立判断的能力，不盲从他人。"
-    },
-    {
-        text: "调查就像'十月怀胎'，解决问题就像'一朝分娩'。",
-        source: "《反对本本主义》",
-        meaning: "充分的准备是成功的基础。"
-    },
-    {
-        text: "群众是真正的英雄。",
-        source: "《〈农村调查〉的序言和跋》",
-        meaning: "要向身边的人学习，每个人都有值得学习的地方。"
-    },
-    {
-        text: "没有文化的军队是愚蠢的军队。",
-        source: "《论联合政府》",
-        meaning: "知识和智慧是力量的源泉。"
-    },
-    {
-        text: "夺取全国胜利，这只是万里长征走完了第一步。",
-        source: "《在中国共产党第七届中央委员会第二次全体会议上的报告》",
-        meaning: "取得一点成绩不要骄傲，更长的路还在前方。"
-    },
-    {
-        text: "务必使同志们继续地保持谦虚、谨慎、不骄、不躁的作风。",
-        source: "《在中国共产党第七届中央委员会第二次全体会议上的报告》",
-        meaning: "成功时更要保持清醒和谦逊。"
-    },
-    {
-        text: "一个人做点好事并不难，难的是一辈子做好事。",
-        source: "《吴玉章同志六十寿辰祝词》",
-        meaning: "坚持是最难能可贵的品质。"
-    },
-    {
-        text: "读书是学习，使用也是学习，而且是更重要的学习。",
-        source: "《中国革命战争的战略问题》",
-        meaning: "实践是最好的学习方式。"
-    },
-    {
-        text: "感觉到了的东西，我们不能立刻理解它，只有理解了的东西才更深刻地感觉它。",
-        source: "《实践论》",
-        meaning: "理性认识比感性认识更深刻。"
-    },
-    {
-        text: "矛盾存在于一切事物的发展过程中。",
-        source: "《矛盾论》",
-        meaning: "有问题是正常的，关键是如何面对和解决。"
-    },
-    {
-        text: "外因是变化的条件，内因是变化的根据。",
-        source: "《矛盾论》",
-        meaning: "外部环境很重要，但内心的力量才是根本。"
-    },
-    {
-        text: "事物的性质，主要地是由取得支配地位的矛盾的主要方面所规定的。",
-        source: "《矛盾论》",
-        meaning: "抓住问题的关键，才能找到解决之道。"
-    },
-    {
-        text: "在危险环境中表示绝望的人，在黑暗中看不见光明的人，只是懦夫与机会主义者。",
-        source: "《论持久战》",
-        meaning: "即使在最困难的时候，也要保持希望。"
-    },
-    {
-        text: "武器是战争的重要的因素，但不是决定的因素，决定的因素是人不是物。",
-        source: "《论持久战》",
-        meaning: "人的意志和智慧比物质条件更重要。"
-    },
-    {
-        text: "战争的目的不是别的，就是保存自己，消灭敌人。",
-        source: "《论持久战》",
-        meaning: "保护自己，战胜困难，是生存的智慧。"
-    },
-    {
-        text: "主动权不是任何天才家所固有的，而是智慧和勇气所产生的。",
-        source: "《抗日游击战争的战略问题》",
-        meaning: "主动把握机会，需要智慧和勇气。"
+        meaning: "你觉得自己做的事太小、太微不足道？不，所有伟大的事，开始时都看起来不值一提。你现在点的这把火，比你以为的重要得多。"
     },
     {
         text: "有利的情况和主动的恢复，产生于'再坚持一下'的努力之中。",
         source: "《抗日游击战争的战略问题》",
-        meaning: "很多时候，成功就在于多坚持一下。"
+        meaning: "你已经撑了很久了，对吧？我知道很累。但转机这种东西，它不提前通知你，它就藏在你快要放弃的那一步后面。"
+    },
+    {
+        text: "世上无难事，只要肯登攀。",
+        source: "《水调歌头·重上井冈山》",
+        meaning: "不是说困难不存在，而是当你真的下定决心的那一刻，困难就已经在让路了。怕的不是难，是你还没开始就认输。"
+    },
+    {
+        text: "战略上要藐视敌人，战术上要重视敌人。",
+        source: "《关于目前党的政策中的几个重要问题》",
+        meaning: "你心里要坚信自己能赢，但手上的活不能糊弄。信心要大，功夫要细——这才是真正厉害的人。"
+    },
+    {
+        text: "没有调查，就没有发言权。",
+        source: "《反对本本主义》",
+        meaning: "焦虑大多来自"不确定"。与其在脑子里反复构想最坏的结果，不如真的去了解一下——你会发现，事情往往没你想的那么糟。"
+    },
+    {
+        text: "外因是变化的条件，内因是变化的根据。",
+        source: "《矛盾论》",
+        meaning: "环境差、运气差、别人不理解你——这些都是真的。但能让你真正改变的，从来不是这些外在的东西，而是你自己心里那股劲儿。"
+    },
+    {
+        text: "在危险环境中表示绝望的人，在黑暗中看不见光明的人，只是懦夫与机会主义者。",
+        source: "《论持久战》",
+        meaning: "这话听着狠，但他想说的其实是：你比你以为的勇敢。你不是懦夫，因为真正的懦夫不会像你一样，还在寻找答案。"
+    },
+    {
+        text: "武器是战争的重要的因素，但不是决定的因素，决定的因素是人不是物。",
+        source: "《论持久战》",
+        meaning: "你是不是觉得自己没钱、没资源、没人脉、什么都没有？他告诉你：最关键的资源——是你自己。条件好的人赢了不稀奇，条件差但不认命的人赢了，才叫牛。"
     },
     {
         text: "我们的同志在困难的时候，要看到成绩，要看到光明，要提高我们的勇气。",
         source: "《为人民服务》",
-        meaning: "困难时更要看到希望，保持勇气。"
+        meaning: "你总盯着还没做到的事，却忘了数数自己已经做到了多少。回头看看，你其实已经很了不起了。"
     },
     {
-        text: "人总是要死的，但死的意义有不同。",
-        source: "《为人民服务》",
-        meaning: "生命的价值在于意义，而不在于长短。"
+        text: "调查就像'十月怀胎'，解决问题就像'一朝分娩'。",
+        source: "《反对本本主义》",
+        meaning: "你觉得自己做了很多准备却还是没有结果？别急，准备本身就是最重要的过程。时候到了，答案会自己出来。"
     },
     {
-        text: "因为我们是为人民服务的，所以，我们如果有缺点，就不怕别人批评指出。",
-        source: "《为人民服务》",
-        meaning: "虚心接受批评，才能不断进步。"
+        text: "不打无准备之仗。",
+        source: "《论持久战》",
+        meaning: "你是不是总觉得自己"还没准备好"？但准备不等于完美。准备好60%就去做，比等到100%却永远不动要好一万倍。"
     },
     {
-        text: "一切革命队伍的人都要互相关心，互相爱护，互相帮助。",
-        source: "《为人民服务》",
-        meaning: "人与人之间要相互支持和关爱。"
+        text: "集中优势兵力，各个歼灭敌人。",
+        source: "《集中优势兵力，各个歼灭敌人》",
+        meaning: "想做的事太多，什么都想抓，结果什么都没做好？试试一次只做一件事，把这件做透了，再做下一件。"
     },
     {
-        text: "要使全体青年们懂得，我们的国家现在还是一个很穷的国家。",
-        source: "《关于正确处理人民内部矛盾的问题》",
-        meaning: "认清现实，脚踏实地，才能改变现状。"
+        text: "一个人做点好事并不难，难的是一辈子做好事。",
+        source: "《吴玉章同志六十寿辰祝词》",
+        meaning: "你坚持一件事很久了？那你就已经赢了大多数人。很多人都是开头猛，你是那种慢慢来但真正能走到最后的人。"
     },
     {
-        text: "世界是在进步的，前途是光明的，这个历史的总趋势任何人也改变不了。",
-        source: "《关于重庆谈判》",
-        meaning: "相信未来，相信进步的力量。"
+        text: "读书是学习，使用也是学习，而且是更重要的学习。",
+        source: "《中国革命战争的战略问题》",
+        meaning: "你是不是又在"学习"了？又在看课、看书、做笔记？停下来，去做一次。犯错的经验，比读十本书都顶用。"
     },
     {
-        text: "我们应当把世界进步的情况和光明的前途，常常向人民宣传。",
-        source: "《关于重庆谈判》",
-        meaning: "传播正能量，让更多人看到希望。"
+        text: "感觉到了的东西，我们不能立刻理解它，只有理解了的东西才更深刻地感觉它。",
+        source: "《实践论》",
+        meaning: "有些事你现在隐约感觉到了但说不清楚——没关系，等你经历更多，某一天你会忽然理解。那种"原来如此"的瞬间，会自己来找你。"
     },
     {
-        text: "什么叫工作，工作就是斗争。",
-        source: "《关于重庆谈判》",
-        meaning: "工作就是不断克服困难的过程。"
+        text: "事物的性质，主要地是由取得支配地位的矛盾的主要方面所规定的。",
+        source: "《矛盾论》",
+        meaning: "觉得生活一团乱？不要试图同时解决所有问题。找到那个最核心的问题，解决它，其他的自然会变好。"
+    },
+    {
+        text: "主动权不是任何天才家所固有的，而是智慧和勇气所产生的。",
+        source: "《抗日游击战争的战略问题》",
+        meaning: "你总觉得"那些厉害的人天生就行"？不是的。他们只是比别人更早地动手了。主动权不是等来的，是抢来的。"
+    },
+    {
+        text: "矛盾存在于一切事物的发展过程中。",
+        source: "《矛盾论》",
+        meaning: "你现在遇到的纠结和矛盾，不是因为你做错了什么。有矛盾才说明你在成长。没有矛盾的人生，是停滞的人生。"
     },
     {
         text: "我们不但善于破坏一个旧世界，我们还将善于建设一个新世界。",
         source: "《在中国共产党第七届中央委员会第二次全体会议上的报告》",
-        meaning: "勇于改变，勇于创造新的可能。"
-    },
-    {
-        text: "我们能够学会我们原来不懂的东西。",
-        source: "《在中国共产党第七届中央委员会第二次全体会议上的报告》",
-        meaning: "学习的能力是无限的，永远不要停止学习。"
+        meaning: "旧的东西碎了？关系断了、计划崩了、一切推倒重来？这不是结束，这是你终于有机会按自己的方式，重新来过。"
     },
     {
         text: "我们的任务是过河，但是没有桥或没有船就不能过。",
         source: "《关心群众生活，注意工作方法》",
-        meaning: "目标明确后，要找到正确的方法。"
+        meaning: "目标很好，但你有没有想过"怎么做"？光喊口号没用的。先找"船"——哪怕是一块木板也行，先下水再说。"
     },
     {
-        text: "不解决桥或船的问题，过河就是一句空话。",
-        source: "《关心群众生活，注意工作方法》",
-        meaning: "方法和工具同样重要。"
+        text: "自己动手，丰衣足食。",
+        source: "为南泥湾题词",
+        meaning: "等别人来救你？等环境变好？等运气来？都不如自己动手。你能靠的人，永远是你自己。"
     },
     {
-        text: "群众生产，群众利益，群众经验，群众情绪，这些都是领导干部们应时刻注意的。",
-        source: "《为群众服务》",
-        meaning: "关注身边的人和事，才能做出正确的决策。"
+        text: "下定决心，不怕牺牲，排除万难，去争取胜利。",
+        source: "《愚公移山》",
+        meaning: "你一直在犹豫、在权衡、在害怕。但有些事，一旦下了决心，剩下的困难就不叫困难了——那只是过程而已。"
     },
     {
-        text: "艰苦的工作就像担子，摆在我们的面前，看我们敢不敢承担。",
-        source: "《关于重庆谈判》",
-        meaning: "勇于承担责任，是成长的必经之路。"
-    },
-    {
-        text: "有些同志不愿意多想困难。但是困难是事实，有多少就得承认多少。",
-        source: "《关于重庆谈判》",
-        meaning: "正视困难，才能找到解决的办法。"
-    },
-    {
-        text: "不能只要好的，把困难向人民宣传一下，没有什么坏处。",
-        source: "《关于重庆谈判》",
-        meaning: "坦诚面对困难，才能获得理解和支持。"
-    },
-    {
-        text: "办法是跟着方针来的。",
-        source: "《反对日本进攻的方针、办法和前途》",
-        meaning: "方向明确了，方法自然会找到。"
-    },
-    {
-        text: "事情有大道理，有小道理，一切小道理都归大道理管着。",
-        source: "《反对日本进攻的方针、办法和前途》",
-        meaning: "抓住主要矛盾，次要问题自然迎刃而解。"
-    },
-    {
-        text: "我们的同志不论到什么地方，都要和群众的关系搞好，要关心群众。",
-        source: "《关于领导方法的若干问题》",
-        meaning: "与人为善，关心他人，是处世之道。"
-    },
-    {
-        text: "凡属正确的领导，必须是从群众中来，到群众中去。",
-        source: "《关于领导方法的若干问题》",
-        meaning: "倾听和学习，是最好的成长方式。"
+        text: "夺取全国胜利，这只是万里长征走完了第一步。",
+        source: "《在中国共产党第七届中央委员会第二次全体会议上的报告》",
+        meaning: "刚拿到一个小成绩就飘了？还是说刚做完一件事就觉得可以歇了？清醒一点：你走的路还长着呢，但这也意味着——精彩才刚开始。"
     },
     {
         text: "丢掉幻想，准备斗争。",
         source: "《丢掉幻想，准备斗争》",
-        meaning: "面对现实，做好充分的准备。"
+        meaning: "别再幻想了：幻想有人来拯救你，幻想事情会自动变好，幻想"再等等就行了"。醒醒吧，接受现实，然后从现实开始打。"
+    },
+    {
+        text: "办法是跟着方针来的。",
+        source: "《反对日本进攻的方针、办法和前途》",
+        meaning: "你迷茫不是因为没有方法，而是因为你还不知道自己要什么。先想清楚方向，方法会自己冒出来。"
+    },
+    {
+        text: "事情有大道理，有小道理，一切小道理都归大道理管着。",
+        source: "《反对日本进攻的方针、办法和前途》",
+        meaning: "纠结于小事？那是因为你忘了大事。问问自己：我到底想要什么？如果大方向是对的，细节的对错根本不重要。"
+    },
+    {
+        text: "虚心使人进步，骄傲使人落后。",
+        source: "《中国共产党第八次全国代表大会开幕词》",
+        meaning: "你最近是不是觉得自己还不错？小心这种感觉。最容易栽跟头的时候，不是你失败的时候，而是你觉得自己已经很厉害的时候。"
+    },
+    {
+        text: "凡是敌人反对的，我们就要拥护；凡是敌人拥护的，我们就要反对。",
+        source: "《和中央社、扫荡报、新民报三记者的谈话》",
+        meaning: "有人质疑你、打击你？也许这恰恰说明你做对了。让你不舒服的人，有时候反而是你最好的路标。"
+    },
+    {
+        text: "世界是在进步的，前途是光明的，这个历史的总趋势任何人也改变不了。",
+        source: "《关于重庆谈判》",
+        meaning: "不管眼前多糟糕，你要相信一件事：事情，在长远看，一定会变好。不是因为乐观，而是因为这就是规律。"
     }
 ];
 
-// 塔罗牌数据 - 78张完整牌组
+// ==================== 塔罗牌数据 - 78张完整牌组 ====================
+// 每张牌增加 reading（深度解读）用于生成有映射感的占卜结果
 const tarotCards = [
     // 大阿尔卡纳 (22张)
-    { id: 0, name: "愚人", nameEn: "The Fool", type: "major", keywords: "开始、自由、纯真、冒险", meaning: "新的起点，充满信心地踏上旅程，拥抱未知，活在当下。", image: "🃏" },
-    { id: 1, name: "魔术师", nameEn: "The Magician", type: "major", keywords: "意志力、技能、专注、表现", meaning: "能力高超，资源充足，将想法变为现实，沟通能力强。", image: "🎩" },
-    { id: 2, name: "女祭司", nameEn: "The High Priestess", type: "major", keywords: "直觉、灵性、内在声音", meaning: "相信直觉，探索内在智慧，隐藏的潜力与秘密。", image: "🌙" },
-    { id: 3, name: "皇后", nameEn: "The Empress", type: "major", keywords: "丰盛、创造力、滋养、自然", meaning: "丰收、富足、创造力、感官享受、关爱与滋养。", image: "👑" },
-    { id: 4, name: "皇帝", nameEn: "The Emperor", type: "major", keywords: "稳定、权威、控制、纪律", meaning: "权力、稳定、纪律、领导力，通过规则达成目标。", image: "⚔️" },
-    { id: 5, name: "教皇", nameEn: "The Hierophant", type: "major", keywords: "传统、教育、信仰、知识", meaning: "遵循传统，寻求指引，精神信仰，融入团体。", image: "📿" },
-    { id: 6, name: "恋人", nameEn: "The Lovers", type: "major", keywords: "爱、选择、平衡、团结", meaning: "重要的选择，真爱，价值观一致，和谐的伙伴关系。", image: "💕" },
-    { id: 7, name: "战车", nameEn: "The Chariot", type: "major", keywords: "成功、决心、自律、控制力", meaning: "通过意志力取得成功，掌控局势，前进，胜利。", image: "🏆" },
-    { id: 8, name: "力量", nameEn: "Strength", type: "major", keywords: "勇气、自信、同情、内在力量", meaning: "内心的力量，以温和的方式克服挑战，勇气与同情。", image: "🦁" },
-    { id: 9, name: "隐士", nameEn: "The Hermit", type: "major", keywords: "自我反省、孤独、寻找真理", meaning: "自我反思，寻求内在真理，独处以获得智慧。", image: "🏔️" },
-    { id: 10, name: "命运之轮", nameEn: "Wheel of Fortune", type: "major", keywords: "变化、命运、运气、转机", meaning: "命运的转折，好运，新的周期开始，把握机遇。", image: "☸️" },
-    { id: 11, name: "正义", nameEn: "Justice", type: "major", keywords: "公平、责任、真相、因果", meaning: "公平公正，因果报应，平衡，做出正确决定。", image: "⚖️" },
-    { id: 12, name: "倒吊人", nameEn: "The Hanged Man", type: "major", keywords: "牺牲、等待、新视角", meaning: "自愿牺牲，换位思考，等待时机，精神觉醒。", image: "🙃" },
-    { id: 13, name: "死神", nameEn: "Death", type: "major", keywords: "转变、结束、放手、新生", meaning: "不可避免的结束，深刻的转变，放手迎接新生。", image: "💀" },
-    { id: 14, name: "节制", nameEn: "Temperance", type: "major", keywords: "平衡、耐心、和谐、适度", meaning: "平衡和谐，融合对立面，耐心，找到中间道路。", image: "🏺" },
-    { id: 15, name: "恶魔", nameEn: "The Devil", type: "major", keywords: "欲望、束缚、沉迷、无力", meaning: "沉迷、束缚、物质欲望、感觉被困。", image: "😈" },
-    { id: 16, name: "高塔", nameEn: "The Tower", type: "major", keywords: "剧变、崩溃、颠覆、觉醒", meaning: "突如其来的剧变，打破幻想，必要的破坏与觉醒。", image: "🗼" },
-    { id: 17, name: "星星", nameEn: "The Star", type: "major", keywords: "希望、灵感、治愈、信念", meaning: "希望与信心，灵感涌现，心灵平静，对未来乐观。", image: "⭐" },
-    { id: 18, name: "月亮", nameEn: "The Moon", type: "major", keywords: "幻觉、潜意识、困惑、秘密", meaning: "面对恐惧，探索潜意识，幻觉，不确定性。", image: "🌕" },
-    { id: 19, name: "太阳", nameEn: "The Sun", type: "major", keywords: "快乐、成功、活力、真理", meaning: "快乐与成功，活力充沛，积极乐观，纯真。", image: "☀️" },
-    { id: 20, name: "审判", nameEn: "Judgement", type: "major", keywords: "觉醒、重生、反思、清算", meaning: "自我反省与觉醒，因果清算，重要的决定，重生。", image: "📯" },
-    { id: 21, name: "世界", nameEn: "The World", type: "major", keywords: "完成、成就、圆满、和谐", meaning: "圆满成功，旅程完成，达成目标，整合与和谐。", image: "🌍" },
-    
-    // 权杖牌组 (14张)
-    { id: 22, name: "权杖王牌", nameEn: "Ace of Wands", type: "wands", keywords: "新开始、灵感、活力", meaning: "新的创意和激情，充满活力的新起点。", image: "🔥" },
-    { id: 23, name: "权杖二", nameEn: "Two of Wands", type: "wands", keywords: "计划、决策、冒险", meaning: "在计划与行动之间，需要做出重要决策。", image: "⚡" },
-    { id: 24, name: "权杖三", nameEn: "Three of Wands", type: "wands", keywords: "进展、远见、扩张", meaning: "初步成果显现，展望未来，准备扩张。", image: "🌊" },
-    { id: 25, name: "权杖四", nameEn: "Four of Wands", type: "wands", keywords: "稳定、庆祝、家庭和谐", meaning: "稳定和庆祝的时刻，享受成果。", image: "🎉" },
-    { id: 26, name: "权杖五", nameEn: "Five of Wands", type: "wands", keywords: "竞争、冲突、自我挑战", meaning: "面临竞争和挑战，需要展现能力。", image: "⚔️" },
-    { id: 27, name: "权杖六", nameEn: "Six of Wands", type: "wands", keywords: "胜利、认可、自信", meaning: "获得胜利和认可，自信满满。", image: "🏇" },
-    { id: 28, name: "权杖七", nameEn: "Seven of Wands", type: "wands", keywords: "防御、坚持、保护", meaning: "需要坚守立场，保护自己的成果。", image: "🛡️" },
-    { id: 29, name: "权杖八", nameEn: "Eight of Wands", type: "wands", keywords: "快速行动、进展、突然变化", meaning: "事情快速发展，变化突如其来。", image: "🏹" },
-    { id: 30, name: "权杖九", nameEn: "Nine of Wands", type: "wands", keywords: "韧性、坚持、接近成功", meaning: "虽然疲惫但仍坚持，成功就在眼前。", image: "🌉" },
-    { id: 31, name: "权杖十", nameEn: "Ten of Wands", type: "wands", keywords: "负担、压力、责任过重", meaning: "承担过多责任，感到压力重重。", image: "🏋️" },
-    { id: 32, name: "权杖侍从", nameEn: "Page of Wands", type: "wands", keywords: "活力、新想法、冒险精神", meaning: "充满热情和创意，勇于探索新事物。", image: "📜" },
-    { id: 33, name: "权杖骑士", nameEn: "Knight of Wands", type: "wands", keywords: "勇敢、热情、自由奔放", meaning: "充满激情地追求目标，行动迅速。", image: "🐎" },
-    { id: 34, name: "权杖皇后", nameEn: "Queen of Wands", type: "wands", keywords: "自信、热情、社交魅力", meaning: "自信而有魅力，善于激励他人。", image: "👸" },
-    { id: 35, name: "权杖国王", nameEn: "King of Wands", type: "wands", keywords: "领导力、远见、果断", meaning: "具有远见卓识的领导者，果断决策。", image: "🤴" },
-    
-    // 圣杯牌组 (14张)
-    { id: 36, name: "圣杯王牌", nameEn: "Ace of Cups", type: "cups", keywords: "新情感、爱、直觉", meaning: "新的情感开始，爱与直觉的涌现。", image: "🌊" },
-    { id: 37, name: "圣杯二", nameEn: "Two of Cups", type: "cups", keywords: "和谐、合作、深情连接", meaning: "和谐的关系，深厚的情感连接。", image: "💑" },
-    { id: 38, name: "圣杯三", nameEn: "Three of Cups", type: "cups", keywords: "庆祝、社交、友谊", meaning: "与朋友庆祝，享受社交时光。", image: "🥂" },
-    { id: 39, name: "圣杯四", nameEn: "Four of Cups", type: "cups", keywords: "沉思、不满、抽离", meaning: "对现状不满，需要重新审视内心。", image: "😔" },
-    { id: 40, name: "圣杯五", nameEn: "Five of Cups", type: "cups", keywords: "失落、悲伤、失望", meaning: "经历失落，但仍需看到希望。", image: "😢" },
-    { id: 41, name: "圣杯六", nameEn: "Six of Cups", type: "cups", keywords: "怀旧、治愈、童年记忆", meaning: "回忆过去，从记忆中寻找治愈。", image: "🌸" },
-    { id: 42, name: "圣杯七", nameEn: "Seven of Cups", type: "cups", keywords: "选择、幻想、白日梦", meaning: "面临多种选择，需要分辨幻想与现实。", image: "🌈" },
-    { id: 43, name: "圣杯八", nameEn: "Eight of Cups", type: "cups", keywords: "放弃、追寻更深意义", meaning: "放弃不再满足的事物，追寻更深意义。", image: "🚶" },
-    { id: 44, name: "圣杯九", nameEn: "Nine of Cups", type: "cups", keywords: "愿望达成、满足、快乐", meaning: "愿望实现，感到满足和快乐。", image: "😊" },
-    { id: 45, name: "圣杯十", nameEn: "Ten of Cups", type: "cups", keywords: "幸福、家庭和谐、情感圆满", meaning: "家庭幸福，情感圆满，和谐美满。", image: "🏠" },
-    { id: 46, name: "圣杯侍从", nameEn: "Page of Cups", type: "cups", keywords: "敏感、梦想家、天真", meaning: "敏感而富有想象力，充满梦想。", image: "🐟" },
-    { id: 47, name: "圣杯骑士", nameEn: "Knight of Cups", type: "cups", keywords: "浪漫、优雅、理想主义", meaning: "浪漫的追求者，优雅而理想化。", image: "🦄" },
-    { id: 48, name: "圣杯皇后", nameEn: "Queen of Cups", type: "cups", keywords: "同情、直觉、治愈力", meaning: "富有同情心，直觉敏锐，善于治愈。", image: "🧜‍♀️" },
-    { id: 49, name: "圣杯国王", nameEn: "King of Cups", type: "cups", keywords: "智慧、平衡、温和权威", meaning: "情感智慧，内心平衡，温和而有权威。", image: "🧜‍♂️" },
-    
-    // 宝剑牌组 (14张)
-    { id: 50, name: "宝剑王牌", nameEn: "Ace of Swords", type: "swords", keywords: "突破、清晰、新想法", meaning: "思维突破，获得清晰的洞察力。", image: "⚔️" },
-    { id: 51, name: "宝剑二", nameEn: "Two of Swords", type: "swords", keywords: "僵局、逃避、两难选择", meaning: "面临两难选择，需要做出决定。", image: "😶" },
-    { id: 52, name: "宝剑三", nameEn: "Three of Swords", type: "swords", keywords: "心碎、分离、悲伤", meaning: "经历心痛，但这是治愈的开始。", image: "💔" },
-    { id: 53, name: "宝剑四", nameEn: "Four of Swords", type: "swords", keywords: "休息、疗愈、暂停", meaning: "需要休息和恢复，暂停是为了更好地前进。", image: "🧘" },
-    { id: 54, name: "宝剑五", nameEn: "Five of Swords", type: "swords", keywords: "冲突、争论、胜利代价", meaning: "冲突后的胜利，但付出了代价。", image: "🏴" },
-    { id: 55, name: "宝剑六", nameEn: "Six of Swords", type: "swords", keywords: "过渡、离开、慢慢恢复", meaning: "离开困境，向更好的地方过渡。", image: "⛵" },
-    { id: 56, name: "宝剑七", nameEn: "Seven of Swords", type: "swords", keywords: "策略、欺骗、暗中行动", meaning: "需要策略，但要小心欺骗。", image: "🦊" },
-    { id: 57, name: "宝剑八", nameEn: "Eight of Swords", type: "swords", keywords: "束缚、无力感、被困", meaning: "感到被困，但束缚往往是自己设下的。", image: "🕸️" },
-    { id: 58, name: "宝剑九", nameEn: "Nine of Swords", type: "swords", keywords: "噩梦、焦虑、恐惧", meaning: "被焦虑和恐惧困扰，需要面对内心。", image: "😰" },
-    { id: 59, name: "宝剑十", nameEn: "Ten of Swords", type: "swords", keywords: "结束、痛苦、崩溃", meaning: "痛苦的结束，但也是新生的开始。", image: "🗡️" },
-    { id: 60, name: "宝剑侍从", nameEn: "Page of Swords", type: "swords", keywords: "好奇、警觉、新消息", meaning: "充满好奇心，保持警觉，新消息将至。", image: "🗡️" },
-    { id: 61, name: "宝剑骑士", nameEn: "Knight of Swords", type: "swords", keywords: "果断、理智、追求目标", meaning: "果断行动，理智追求目标。", image: "⚡" },
-    { id: 62, name: "宝剑皇后", nameEn: "Queen of Swords", type: "swords", keywords: "清晰、公正、理智判断", meaning: "思维清晰，公正理智，判断准确。", image: "👁️" },
-    { id: 63, name: "宝剑国王", nameEn: "King of Swords", type: "swords", keywords: "权威、理性、高标准", meaning: "理性权威，坚持高标准。", image: "👑" },
-    
-    // 星币牌组 (14张)
-    { id: 64, name: "星币王牌", nameEn: "Ace of Pentacles", type: "pentacles", keywords: "新机会、财富、稳定", meaning: "新的物质机会，财富和稳定的基础。", image: "💰" },
-    { id: 65, name: "星币二", nameEn: "Two of Pentacles", type: "pentacles", keywords: "平衡资源、灵活应对", meaning: "在多个事务间平衡，灵活应对变化。", image: "⚖️" },
-    { id: 66, name: "星币三", nameEn: "Three of Pentacles", type: "pentacles", keywords: "合作、学习、团队成果", meaning: "团队合作，学习技能，共同创造。", image: "🏗️" },
-    { id: 67, name: "星币四", nameEn: "Four of Pentacles", type: "pentacles", keywords: "稳定、储蓄、守护资源", meaning: "守护已有资源，保持稳定。", image: "🏦" },
-    { id: 68, name: "星币五", nameEn: "Five of Pentacles", type: "pentacles", keywords: "困难、失落、孤立", meaning: "经历物质困难，但不要失去希望。", image: "🚪" },
-    { id: 69, name: "星币六", nameEn: "Six of Pentacles", type: "pentacles", keywords: "慷慨、分享、公平交换", meaning: "慷慨分享，公平交换，施与受。", image: "🎁" },
-    { id: 70, name: "星币七", nameEn: "Seven of Pentacles", type: "pentacles", keywords: "耐心等待、收获、成长", meaning: "耐心等待成果，评估进展。", image: "🌱" },
-    { id: 71, name: "星币八", nameEn: "Eight of Pentacles", type: "pentacles", keywords: "技能、专注、质量", meaning: "专注提升技能，追求卓越品质。", image: "🔨" },
-    { id: 72, name: "星币九", nameEn: "Nine of Pentacles", type: "pentacles", keywords: "独立、享受成果、自足", meaning: "享受独立和成果，自给自足。", image: "🦚" },
-    { id: 73, name: "星币十", nameEn: "Ten of Pentacles", type: "pentacles", keywords: "家庭财富、传统、安全", meaning: "家庭财富和安全，传承传统。", image: "🏛️" },
-    { id: 74, name: "星币侍从", nameEn: "Page of Pentacles", type: "pentacles", keywords: "勤奋、学习、务实", meaning: "勤奋学习，务实进取。", image: "📚" },
-    { id: 75, name: "星币骑士", nameEn: "Knight of Pentacles", type: "pentacles", keywords: "稳健、耐心、可靠", meaning: "稳健可靠，耐心追求目标。", image: "🐢" },
-    { id: 76, name: "星币皇后", nameEn: "Queen of Pentacles", type: "pentacles", keywords: "丰盛、滋养、务实关怀", meaning: "物质丰盛，滋养他人，务实关怀。", image: "🌳" },
-    { id: 77, name: "星币国王", nameEn: "King of Pentacles", type: "pentacles", keywords: "成功、保障、慷慨", meaning: "物质成功，财务保障，慷慨大方。", image: "🦁" }
+    { id: 0, name: "愚人", nameEn: "The Fool", type: "major", keywords: "开始、自由、纯真、冒险",
+      meaning: "新的起点，充满信心地踏上旅程，拥抱未知，活在当下。",
+      reading: { upright: "你内心深处一直渴望一个全新的开始，对吧？你隐约知道该出发了，但又害怕未知。这张牌说的就是你现在的状态——站在悬崖边，看着远方，心里既害怕又兴奋。你不需要看清全部的路再动身，迈出第一步就够了。", reversed: "你是不是被别人的眼光困住了？大家觉得你"不该冒这个险"、"太天真了"——但说实话，那些"稳妥"的建议往往来自不敢冒险的人。你需要找回最初的那份单纯和勇气。" },
+      image: "🃏" },
+    { id: 1, name: "魔术师", nameEn: "The Magician", type: "major", keywords: "意志力、技能、专注、表现",
+      meaning: "能力高超，资源充足，将想法变为现实，沟通能力强。",
+      reading: { upright: "你手里的牌其实比你以为的好得多。你有能力、有资源、有想法——你唯一缺的是相信自己真的能做到。这张牌在提醒你：你不是在等一个机会，你就是那个机会。", reversed: "你最近是不是感觉自己有很多想法，但哪个都落不了地？或者明明有能力，却总用不出来？问题不在能力本身，而在于你太分散了。专注在一件事上试试。" },
+      image: "🎩" },
+    { id: 2, name: "女祭司", nameEn: "The High Priestess", type: "major", keywords: "直觉、灵性、内在声音",
+      meaning: "相信直觉，探索内在智慧，隐藏的潜力与秘密。",
+      reading: { upright: "你心里其实已经有答案了，只是你不敢相信自己的直觉。有个声音一直在告诉你该怎么做，但你害怕它是错的。这一次，试着听它的——你的直觉比你的理性更了解你。", reversed: "你是不是太依赖别人的意见了？朋友说的、网上看的、各种"过来人"的建议——但你忘了问最重要的那个人：你自己。安静下来，和自己待一会儿。" },
+      image: "🌙" },
+    { id: 3, name: "皇后", nameEn: "The Empress", type: "major", keywords: "丰盛、创造力、滋养、自然",
+      meaning: "丰收、富足、创造力、感官享受、关爱与滋养。",
+      reading: { upright: "你最近是不是一直在拼命输出，照顾别人，为别人操心？这张牌提醒你：先照顾好自己。你值得被好好对待，值得享受生活。不必总是给予，也允许自己接受。", reversed: "你有多久没有做自己真正想做的事了？不是"应该做的"，不是"别人期待的"——是你真正喜欢的。你的创造力正在被压抑，它需要一个出口。" },
+      image: "👑" },
+    { id: 4, name: "皇帝", nameEn: "The Emperor", type: "major", keywords: "稳定、权威、控制、纪律",
+      meaning: "权力、稳定、纪律、领导力，通过规则达成目标。",
+      reading: { upright: "你需要的不是更多的灵感或热血，而是秩序和纪律。给自己定个规矩、列个计划、然后执行。你不是缺方向，你是缺执行力。该狠一点了。", reversed: "你是不是控制欲太强了？想掌控一切、不允许出错、不能接受意外？但活着就是有意外的。放松一点，不是每件事都需要你来拍板。" },
+      image: "⚔️" },
+    { id: 5, name: "教皇", nameEn: "The Hierophant", type: "major", keywords: "传统、教育、信仰、知识",
+      meaning: "遵循传统，寻求指引，精神信仰，融入团体。",
+      reading: { upright: "也许你现在需要的不是打破规则，而是找到一个值得信赖的体系。找个导师、加入一个圈子、或者回到某个你曾经信任的方法论。不必什么都自己摸索。", reversed: "你是不是一直在"听话"——按别人说的做、走别人走过的路？但你的心一直不舒服。也许是时候质疑一下那些"一直以来都是这样的"规则了。" },
+      image: "📿" },
+    { id: 6, name: "恋人", nameEn: "The Lovers", type: "major", keywords: "爱、选择、平衡、团结",
+      meaning: "重要的选择，真爱，价值观一致，和谐的伙伴关系。",
+      reading: { upright: "你面前有一个重要的选择，对吧？这个选择可能关乎一段关系、一份工作、或者人生方向。这张牌告诉你：选那个和你内心价值观一致的，而不是看起来更"安全"的那个。", reversed: "你是不是在一段关系里感到不对劲？不管是恋人、朋友还是合作伙伴——如果你们的核心价值观不一样，迁就和妥协只会让你越来越痛苦。" },
+      image: "💕" },
+    { id: 7, name: "战车", nameEn: "The Chariot", type: "major", keywords: "成功、决心、自律、控制力",
+      meaning: "通过意志力取得成功，掌控局势，前进，胜利。",
+      reading: { upright: "你知道自己要什么，你也有能力去拿到它。现在需要的只是狠下心来往前冲。别再犹豫了，该你上场了。这张牌是在告诉你：你会赢。", reversed: "你最近是不是在跟自己较劲？想控制一切结果但发现做不到？放松——不是每场仗都需要硬拼。有时候迂回比强攻更聪明。" },
+      image: "🏆" },
+    { id: 8, name: "力量", nameEn: "Strength", type: "major", keywords: "勇气、自信、同情、内在力量",
+      meaning: "内心的力量，以温和的方式克服挑战，勇气与同情。",
+      reading: { upright: "你不需要变得更"强硬"来应对眼前的困难。真正的力量是温柔的——是你知道自己害怕，但还是选择面对。你比你以为的坚强得多，只是你习惯了低估自己。", reversed: "你是不是对自己太苛刻了？总觉得自己不够好、不够强、不够努力？你的内在已经承受了很多了。试着对自己温柔一点。" },
+      image: "🦁" },
+    { id: 9, name: "隐士", nameEn: "The Hermit", type: "major", keywords: "自我反省、孤独、寻找真理",
+      meaning: "自我反思，寻求内在真理，独处以获得智慧。",
+      reading: { upright: "你最近是不是觉得很累很想一个人待着？不是你有问题，是你需要时间消化。给自己一些独处的时间，关掉手机，安静地想想你到底要什么。答案不在外面，在你心里。", reversed: "你是不是把自己封闭太久了？独处是好的，但太久的孤立会让你迷失。找个你信任的人聊聊——有时候说出来，比一个人闷着有用得多。" },
+      image: "🏔️" },
+    { id: 10, name: "命运之轮", nameEn: "Wheel of Fortune", type: "major", keywords: "变化、命运、运气、转机",
+      meaning: "命运的转折，好运，新的周期开始，把握机遇。",
+      reading: { upright: "转机来了。你可能还没感觉到，但命运的齿轮已经开始转了。那些之前不顺的、卡住的、怎么努力都没用的事——很快就会有变化。你要做的是：准备好接住它。", reversed: "你是不是觉得运气特别差、什么都不顺？别慌。低谷是暂时的，就像天不可能一直下雨。你现在要做的不是和命运较劲，而是蛰伏、积累，等风来。" },
+      image: "☸️" },
+    { id: 11, name: "正义", nameEn: "Justice", type: "major", keywords: "公平、责任、真相、因果",
+      meaning: "公平公正，因果报应，平衡，做出正确决定。",
+      reading: { upright: "你心里一直知道什么是对的，只是做对的事不容易。但这张牌鼓励你：做正确的选择，哪怕它更难。因果不会骗人，你种下什么，最终就会收获什么。", reversed: "你有没有在某件事上对自己撒了谎？或者一直在逃避面对某个事实？真相让人不舒服，但假装不知道只会拖更久。该诚实了。" },
+      image: "⚖️" },
+    { id: 12, name: "倒吊人", nameEn: "The Hanged Man", type: "major", keywords: "牺牲、等待、新视角",
+      meaning: "自愿牺牲，换位思考，等待时机，精神觉醒。",
+      reading: { upright: "你现在感觉被困住了？动不了、做什么都不对、往前走也不是退回去也不是？这张牌说：别动。现在不是行动的时候，是反思的时候。换个角度看你的处境——答案可能完全相反。", reversed: "你是不是一直在等、一直在忍、把"等待"当成了习惯？等待是有期限的。如果你已经清楚了，那就该动了，别再拖了。" },
+      image: "🙃" },
+    { id: 13, name: "死神", nameEn: "Death", type: "major", keywords: "转变、结束、放手、新生",
+      meaning: "不可避免的结束，深刻的转变，放手迎接新生。",
+      reading: { upright: "有些东西该放下了。你知道我在说什么——那段关系、那个执念、那个已经不适合你的身份。放手不是失去，是腾出空间去接纳更好的。", reversed: "你在抵抗一个不可避免的变化。你知道它要来，但你拼命抓住旧的不放。你越抵抗，越痛苦。学会臣服，让该走的走。" },
+      image: "💀" },
+    { id: 14, name: "节制", nameEn: "Temperance", type: "major", keywords: "平衡、耐心、和谐、适度",
+      meaning: "平衡和谐，融合对立面，耐心，找到中间道路。",
+      reading: { upright: "你是不是活得太极端了？要么拼命冲要么彻底躺平，要么疯狂社交要么完全封闭。这张牌提醒你：找到中间地带。不必非黑即白，允许自己处于灰色区域。", reversed: "你最近是不是感觉生活完全失衡了？工作占满了生活、或者情绪一直大起大落？是时候做减法了——砍掉不重要的、只留核心的。" },
+      image: "🏺" },
+    { id: 15, name: "恶魔", nameEn: "The Devil", type: "major", keywords: "欲望、束缚、沉迷、无力",
+      meaning: "沉迷、束缚、物质欲望、感觉被困。",
+      reading: { upright: "你被某样东西绑住了。可能是一段不健康的关系、一个坏习惯、手机瘾、或者某种你明知不好却戒不了的东西。你觉得自己被困住了——但说实话，绑住你的那条锁链，其实松得你随时可以摘下来。", reversed: "你正在觉醒。那个曾经控制你的东西正在失去力量。继续保持清醒，你已经快要自由了。" },
+      image: "😈" },
+    { id: 16, name: "高塔", nameEn: "The Tower", type: "major", keywords: "剧变、崩溃、颠覆、觉醒",
+      meaning: "突如其来的剧变，打破幻想，必要的破坏与觉醒。",
+      reading: { upright: "有些东西正在崩塌——也许已经崩了。你的计划、你的关系、你以为很稳固的东西。这很痛。但你要知道：能被震碎的，本来就不够结实。废墟之上，你有机会建造真正属于你的东西。", reversed: "你其实已经预感到某些事要崩了，但你选择假装没看到。拖延不会让它消失，只会让最后的冲击更大。不如主动面对。" },
+      image: "🗼" },
+    { id: 17, name: "星星", nameEn: "The Star", type: "major", keywords: "希望、灵感、治愈、信念",
+      meaning: "希望与信心，灵感涌现，心灵平静，对未来乐观。",
+      reading: { upright: "你已经经历了最难的部分，现在是治愈的时候了。你的心里重新有了希望，虽然微弱，但真实存在。相信它。那颗星不会骗你，它一直在那里，只是之前的乌云遮住了它。", reversed: "你是不是对未来失去信心了？觉得生活没意思、努力没意义？你不是真的不信，你只是太累了。好好休息一下，信心会回来的。" },
+      image: "⭐" },
+    { id: 18, name: "月亮", nameEn: "The Moon", type: "major", keywords: "幻觉、潜意识、困惑、秘密",
+      meaning: "面对恐惧，探索潜意识，幻觉，不确定性。",
+      reading: { upright: "你脑子里现在很乱吧？分不清什么是真的、什么是自己吓自己。焦虑让你把影子当成了怪兽。深呼吸——很多让你害怕的事情，在阳光下看其实根本没那么可怕。", reversed: "你之前一直搞不清楚的某件事，即将变得清晰。迷雾在散去。相信自己的感觉，你已经快看到真相了。" },
+      image: "🌕" },
+    { id: 19, name: "太阳", nameEn: "The Sun", type: "major", keywords: "快乐、成功、活力、真理",
+      meaning: "快乐与成功，活力充沛，积极乐观，纯真。",
+      reading: { upright: "好消息：光明来了。那段阴沉的日子正在过去，你即将迎来一段充满活力和快乐的时光。你值得这份快乐——别不好意思接受它。", reversed: "你的快乐是真的快乐吗？还是你在假装开心？如果内心有不对的地方，别硬撑了。真正的快乐来自诚实面对自己。" },
+      image: "☀️" },
+    { id: 20, name: "审判", nameEn: "Judgement", type: "major", keywords: "觉醒、重生、反思、清算",
+      meaning: "自我反省与觉醒，因果清算，重要的决定，重生。",
+      reading: { upright: "你人生中一个重要的转折点到了。过去种下的因，现在要见果了。不管是好的还是坏的，坦然接受。这也是你脱胎换骨的机会——旧的你可以正式退场了。", reversed: "你是不是一直在逃避一个重要的决定？你知道那个决定是什么。推迟它不会让它消失，只会让你更焦虑。面对它，哪怕害怕。" },
+      image: "📯" },
+    { id: 21, name: "世界", nameEn: "The World", type: "major", keywords: "完成、成就、圆满、和谐",
+      meaning: "圆满成功，旅程完成，达成目标，整合与和谐。",
+      reading: { upright: "恭喜你。一段旅程结束了。你可能还没意识到——但你已经完成了一件了不起的事。停下来，看看自己走过的路。你该为自己骄傲。然后，准备好——新的旅程即将开始。", reversed: "你知道有件事应该画个句号了，但你迟迟不肯收尾。也许是完美主义，也许是不舍。但所有的故事都需要一个结局，才能开启下一个。" },
+      image: "🌍" },
+
+    // 权杖牌组 (14张) - 火元素：热情、行动、创造
+    { id: 22, name: "权杖王牌", nameEn: "Ace of Wands", type: "wands", keywords: "新开始、灵感、活力",
+      meaning: "新的创意和激情，充满活力的新起点。",
+      reading: { upright: "你感觉到了吗？那股冲劲、那种'我想做点什么'的感觉。这不是一时冲动，这是你的直觉在告诉你：时候到了。抓住这股热情，它不会停留太久。", reversed: "你有一个想法但迟迟没动手？可能是因为你觉得时机不对或者准备不够。但说实话，热情是有保质期的——再不动，它就凉了。" },
+      image: "🔥" },
+    { id: 23, name: "权杖二", nameEn: "Two of Wands", type: "wands", keywords: "计划、决策、冒险",
+      meaning: "在计划与行动之间，需要做出重要决策。",
+      reading: { upright: "你站在岔路口上。两条路你都看得到，但你只能选一条。别再反复比较了——选那个让你更兴奋的、哪怕更不确定的那个。", reversed: "你是不是想太多了？计划了一百遍但一步没迈？分析瘫痪是真的会让人错过最好的时机的。" },
+      image: "⚡" },
+    { id: 24, name: "权杖三", nameEn: "Three of Wands", type: "wands", keywords: "进展、远见、扩张",
+      meaning: "初步成果显现，展望未来，准备扩张。",
+      reading: { upright: "种子已经发芽了。你之前做的那些事，正在开始见效。现在不是停下来的时候——看得更远一些，你能走的比你以为的更远。", reversed: "你是不是因为短期没看到结果就想放弃了？果实还没长出来而已。再给自己一点时间。" },
+      image: "🌊" },
+    { id: 25, name: "权杖四", nameEn: "Four of Wands", type: "wands", keywords: "稳定、庆祝、家庭和谐",
+      meaning: "稳定和庆祝的时刻，享受成果。",
+      reading: { upright: "你有多久没有停下来庆祝自己的进步了？总是赶着做下一件事。今天就停下来吧——你值得为自己高兴一次。", reversed: "你周围的环境让你感到不安全或不稳定？也许你需要先把"根基"稳住，再考虑其他的。" },
+      image: "🎉" },
+    { id: 26, name: "权杖五", nameEn: "Five of Wands", type: "wands", keywords: "竞争、冲突、自我挑战",
+      meaning: "面临竞争和挑战，需要展现能力。",
+      reading: { upright: "你正在和别人竞争，或者和自己的内心在打架。这种混乱的感觉虽然不舒服，但它是成长的信号。在冲突中找到自己的位置。", reversed: "你是不是在回避冲突？有些碰撞是必要的。一味退让只会让你失去自己的声音。" },
+      image: "⚔️" },
+    { id: 27, name: "权杖六", nameEn: "Six of Wands", type: "wands", keywords: "胜利、认可、自信",
+      meaning: "获得胜利和认可，自信满满。",
+      reading: { upright: "你即将得到认可——也许是升职、好评、或者某个人终于看到了你的付出。享受这一刻，你配得上。", reversed: "你在乎别人的认可是不是太多了？如果做一件事只是为了让别人觉得你厉害，那你迟早会累垮。" },
+      image: "🏇" },
+    { id: 28, name: "权杖七", nameEn: "Seven of Wands", type: "wands", keywords: "防御、坚持、保护",
+      meaning: "需要坚守立场，保护自己的成果。",
+      reading: { upright: "你的领地正在被挑战。可能有人在质疑你、竞争你的位置、或者让你怀疑自己。别退缩——你站在这里是有原因的。", reversed: "你是不是太执着于"防守"了？一直在守反而失去了进攻的机会。有时候，最好的防御是更大胆的进攻。" },
+      image: "🛡️" },
+    { id: 29, name: "权杖八", nameEn: "Eight of Wands", type: "wands", keywords: "快速行动、进展、突然变化",
+      meaning: "事情快速发展，变化突如其来。",
+      reading: { upright: "事情要加速了。你等了很久的那件事——回复、结果、变化——马上就到。做好准备，事情一旦开始可能快得让你来不及反应。", reversed: "你是不是觉得什么都卡住了、进度为零？别急，堵车不代表路断了。可能只是时候未到。" },
+      image: "🏹" },
+    { id: 30, name: "权杖九", nameEn: "Nine of Wands", type: "wands", keywords: "韧性、坚持、接近成功",
+      meaning: "虽然疲惫但仍坚持，成功就在眼前。",
+      reading: { upright: "你累了，我知道。你已经扛了太久了。但你要知道——你已经走了90%了。剩下的10%就靠你最后这口气了。咬咬牙，你就到了。", reversed: "你是不是已经精疲力尽了？适当休息不是认输。你需要补充能量，才能打最后一仗。" },
+      image: "🌉" },
+    { id: 31, name: "权杖十", nameEn: "Ten of Wands", type: "wands", keywords: "负担、压力、责任过重",
+      meaning: "承担过多责任，感到压力重重。",
+      reading: { upright: "你背上的东西太多了。工作、关系、责任、期待——你全都扛着。放下一些吧。不是所有事情都需要你一个人来做。学会说不，学会求助。", reversed: "你是不是终于意识到自己扛不动了？这是好事。承认自己的极限不是软弱，是成熟。" },
+      image: "🏋️" },
+    { id: 32, name: "权杖侍从", nameEn: "Page of Wands", type: "wands", keywords: "活力、新想法、冒险精神",
+      meaning: "充满热情和创意，勇于探索新事物。",
+      reading: { upright: "一个新的想法正在你心里冒芽，虽然它还很模糊、很幼小。别急着否定它——给它一些时间和空间，它可能会长成你意想不到的东西。", reversed: "你是不是把自己的好主意扼杀在摇篮里了？每次有想法就告诉自己"不可能""太天真"？给自己一次试错的机会。" },
+      image: "📜" },
+    { id: 33, name: "权杖骑士", nameEn: "Knight of Wands", type: "wands", keywords: "勇敢、热情、自由奔放",
+      meaning: "充满激情地追求目标，行动迅速。",
+      reading: { upright: "你骨子里是个行动派。现在你需要的不是更多的思考，而是勇敢地冲出去。热情是你最大的武器——用它点燃你的行动。", reversed: "你的热情来得快去得也快？三分钟热度不是性格缺陷，但你需要学会坚持。不是每件事都需要激情来驱动，纪律才是长久的伙伴。" },
+      image: "🐎" },
+    { id: 34, name: "权杖皇后", nameEn: "Queen of Wands", type: "wands", keywords: "自信、热情、社交魅力",
+      meaning: "自信而有魅力，善于激励他人。",
+      reading: { upright: "你身上有一种光——自信的、温暖的、让人想靠近的力量。用好它。你不仅能改变自己，还能影响身边的人。相信你的魅力。", reversed: "你最近是不是变得不自信了？或者在某段关系里失去了自我？记住你是谁。你的力量一直都在，只是暂时被埋住了。" },
+      image: "👸" },
+    { id: 35, name: "权杖国王", nameEn: "King of Wands", type: "wands", keywords: "领导力、远见、果断",
+      meaning: "具有远见卓识的领导者，果断决策。",
+      reading: { upright: "是时候站出来了。不管是在团队里、家庭中、还是你自己的人生——你需要扮演领导者的角色。你有远见，有魄力，别再藏着了。", reversed: "你是不是在用"强势"来掩盖不安全感？真正的领导力不是控制，是让别人感到安心。放松一点，温柔一点。" },
+      image: "🤴" },
+
+    // 圣杯牌组 (14张) - 水元素：情感、关系、心灵
+    { id: 36, name: "圣杯王牌", nameEn: "Ace of Cups", type: "cups", keywords: "新情感、爱、直觉",
+      meaning: "新的情感开始，爱与直觉的涌现。",
+      reading: { upright: "你的心正在打开。一种新的情感正在涌入你的生活——可能是爱情、友谊、或者对生活重新燃起的热爱。允许自己去感受，不要害怕。", reversed: "你是不是把心封起来了？上次受伤之后，你就不敢再投入了。可以保护自己，但也别忘了：心关得太紧，好的东西也进不来。" },
+      image: "🌊" },
+    { id: 37, name: "圣杯二", nameEn: "Two of Cups", type: "cups", keywords: "和谐、合作、深情连接",
+      meaning: "和谐的关系，深厚的情感连接。",
+      reading: { upright: "一段深层的连接正在形成——两个人之间的理解、信任和默契。珍惜这个人，这种连接很难得。", reversed: "你们之间是不是有什么没说出口的东西？误会和隔阂往往来自沉默。找个时间，好好谈一谈。" },
+      image: "💑" },
+    { id: 38, name: "圣杯三", nameEn: "Three of Cups", type: "cups", keywords: "庆祝、社交、友谊",
+      meaning: "与朋友庆祝，享受社交时光。",
+      reading: { upright: "你最近有没有好好和朋友聚一聚？你太久没有"玩"了。工作和压力可以暂时放下，去见见那些让你开心的人。", reversed: "你的社交是真心的还是疲于应付的？如果每次社交回来你都觉得更累了，也许你需要筛选一下你的圈子。" },
+      image: "🥂" },
+    { id: 39, name: "圣杯四", nameEn: "Four of Cups", type: "cups", keywords: "沉思、不满、抽离",
+      meaning: "对现状不满，需要重新审视内心。",
+      reading: { upright: "你对现在的生活感到无聊或不满？明明什么都有，但就是觉得缺了什么。也许你需要的不是更多，而是重新看见已经拥有的东西。", reversed: "你终于从那种"麻木"的状态里走出来了。你又开始有感觉了——即使那感觉不全是好的。这是好事，说明你活过来了。" },
+      image: "😔" },
+    { id: 40, name: "圣杯五", nameEn: "Five of Cups", type: "cups", keywords: "失落、悲伤、失望",
+      meaning: "经历失落，但仍需看到希望。",
+      reading: { upright: "你在为失去的东西难过——一段关系、一次机会、或者某个曾经的自己。你的悲伤是真实的。但当你准备好的时候，转过身——你会发现，还有两杯满满的幸运在等你。", reversed: "你开始从低谷中走出来了。伤痛还在，但它的力量在减弱。你正在愈合。给自己一些耐心。" },
+      image: "😢" },
+    { id: 41, name: "圣杯六", nameEn: "Six of Cups", type: "cups", keywords: "怀旧、治愈、童年记忆",
+      meaning: "回忆过去，从记忆中寻找治愈。",
+      reading: { upright: "你最近是不是总想起以前的事？小时候的快乐、曾经的朋友、那些简单又纯粹的日子。那些记忆在提醒你：你值得拥有那种纯粹的快乐，即使在现在。", reversed: "你是不是活在过去了？怀旧很美，但沉溺其中会让你错过现在。过去回不去了，但现在可以同样精彩。" },
+      image: "🌸" },
+    { id: 42, name: "圣杯七", nameEn: "Seven of Cups", type: "cups", keywords: "选择、幻想、白日梦",
+      meaning: "面临多种选择，需要分辨幻想与现实。",
+      reading: { upright: "你的选择太多了，多到你根本不知道选哪个。有些看起来很美但不真实，有些看起来普通但其实最适合你。别被表面迷惑，问问自己的心——哪个是真的？", reversed: "你终于从幻想中醒过来了。虽然现实不那么美，但至少是真的。从真实出发，你才能走出真实的路。" },
+      image: "🌈" },
+    { id: 43, name: "圣杯八", nameEn: "Eight of Cups", type: "cups", keywords: "放弃、追寻更深意义",
+      meaning: "放弃不再满足的事物，追寻更深意义。",
+      reading: { upright: "你知道自己该走了。那个环境、那段关系、那份工作——它曾经给过你很多，但你已经不属于那里了。离开不是背叛，是对自己的忠诚。", reversed: "你明知该走却走不了。是舍不得？是害怕？还是觉得对不起谁？问问自己：留在这里，你快乐吗？" },
+      image: "🚶" },
+    { id: 44, name: "圣杯九", nameEn: "Nine of Cups", type: "cups", keywords: "愿望达成、满足、快乐",
+      meaning: "愿望实现，感到满足和快乐。",
+      reading: { upright: "你许的那个愿，快要成真了。不是说它会从天上掉下来——而是你已经做了足够多，宇宙正在为你安排剩下的部分。保持期待。", reversed: "你得到了你想要的，但快乐并没有如期而至？也许你追求的东西不是你真正需要的。是时候重新定义"幸福"了。" },
+      image: "😊" },
+    { id: 45, name: "圣杯十", nameEn: "Ten of Cups", type: "cups", keywords: "幸福、家庭和谐、情感圆满",
+      meaning: "家庭幸福，情感圆满，和谐美满。",
+      reading: { upright: "你寻找的那种"幸福"——不是轰轰烈烈的，而是安安静静的、和爱的人在一起的那种——它比你想象的近。也许它就在你身边，只是你一直在远方找。", reversed: "你的家庭或亲密关系里是不是有裂痕？感情的维系需要双方的努力。如果你觉得"不对劲"，也许是时候坐下来好好聊聊了。" },
+      image: "🏠" },
+    { id: 46, name: "圣杯侍从", nameEn: "Page of Cups", type: "cups", keywords: "敏感、梦想家、天真",
+      meaning: "敏感而富有想象力，充满梦想。",
+      reading: { upright: "你内心那个充满梦想、感性又天真的部分正在呼唤你。别总用"理性"压制它。有时候最好的决定不是分析出来的，而是感觉出来的。", reversed: "你的情绪是不是太敏感了？容易被小事影响、容易受伤？你需要学会保护自己的能量——不是每个人的情绪都需要你来承接。" },
+      image: "🐟" },
+    { id: 47, name: "圣杯骑士", nameEn: "Knight of Cups", type: "cups", keywords: "浪漫、优雅、理想主义",
+      meaning: "浪漫的追求者，优雅而理想化。",
+      reading: { upright: "你心中有一份理想——关于爱情、关于生活、关于你想成为的那种人。这份理想让你与众不同。不要因为现实的粗糙就放弃你的优雅。", reversed: "你是不是对现实抱有不切实际的幻想？浪漫很好，但如果你一直在等"完美"的人和事出现，你可能会等很久。" },
+      image: "🦄" },
+    { id: 48, name: "圣杯皇后", nameEn: "Queen of Cups", type: "cups", keywords: "同情、直觉、治愈力",
+      meaning: "富有同情心，直觉敏锐，善于治愈。",
+      reading: { upright: "你有一种天生的温暖和治愈力。人们愿意靠近你、信任你。但别忘了——你也需要被照顾。在疗愈别人之前，先疗愈自己。", reversed: "你的同理心是不是变成了负担？你总在为别人的情绪买单，自己的感受却被忽略。是时候设一些边界了。" },
+      image: "🧜‍♀️" },
+    { id: 49, name: "圣杯国王", nameEn: "King of Cups", type: "cups", keywords: "智慧、平衡、温和权威",
+      meaning: "情感智慧，内心平衡，温和而有权威。",
+      reading: { upright: "你正在学会一件很难的事：在情感和理性之间保持平衡。你不再被情绪控制，也没有变得冷漠。这种状态——就是真正的成熟。", reversed: "你是不是在用"冷静"来掩饰其实很在乎？允许自己有情绪不是软弱。真正强大的人不怕展示痛苦。" },
+      image: "🧜‍♂️" },
+
+    // 宝剑牌组 (14张) - 风元素：思维、真相、冲突
+    { id: 50, name: "宝剑王牌", nameEn: "Ace of Swords", type: "swords", keywords: "突破、清晰、新想法",
+      meaning: "思维突破，获得清晰的洞察力。",
+      reading: { upright: "雾散了。那个困扰你很久的问题，你即将看到答案。一个清晰的、尖锐的想法正在成型——相信它，它是对的。", reversed: "你的思维是不是被困住了？转不过弯来？也许你需要一个完全不同的视角。换个角度看看——真相可能就在你的盲区。" },
+      image: "⚔️" },
+    { id: 51, name: "宝剑二", nameEn: "Two of Swords", type: "swords", keywords: "僵局、逃避、两难选择",
+      meaning: "面临两难选择，需要做出决定。",
+      reading: { upright: "你蒙上了眼睛不想选。因为两个选择都有代价。但不选也是一种选择——而且往往是最差的那种。摘下蒙住眼睛的布，面对它。", reversed: "你终于睁开眼了。虽然看到的不全是好的，但至少你不再自欺欺人了。有了清醒，你才能做出真正的选择。" },
+      image: "😶" },
+    { id: 52, name: "宝剑三", nameEn: "Three of Swords", type: "swords", keywords: "心碎、分离、悲伤",
+      meaning: "经历心痛，但这是治愈的开始。",
+      reading: { upright: "心碎了。不管是因为什么——这种剧烈的疼痛说明你曾经真的在乎过。痛是真的，但它也在帮你清洗一些不属于你的东西。哭吧，然后站起来。", reversed: "你正在从一次深深的伤痛中恢复。还有痕迹，但最尖锐的部分已经过去了。你比你以为的更具复原力。" },
+      image: "💔" },
+    { id: 53, name: "宝剑四", nameEn: "Four of Swords", type: "swords", keywords: "休息、疗愈、暂停",
+      meaning: "需要休息和恢复，暂停是为了更好地前进。",
+      reading: { upright: "够了，停下来。你的身体和心理都在告诉你：需要休息。这不是懒、不是逃避——这是必须的充电。你不能用空电池去打仗。", reversed: "你休息够了吗？还是说你在用"休息"当借口回避该做的事？如果你已经恢复了能量，是时候重新出发了。" },
+      image: "🧘" },
+    { id: 54, name: "宝剑五", nameEn: "Five of Swords", type: "swords", keywords: "冲突、争论、胜利代价",
+      meaning: "冲突后的胜利，但付出了代价。",
+      reading: { upright: "你赢了，但代价呢？那段争吵、那次对抗——你赢了道理，但可能输了感情。有些胜利不值得。想想：赢了这一次，你真的更好了吗？", reversed: "你是不是总在当那个"让步"的人？心里憋了很多话但说不出口？你不需要为了维持和平而一直牺牲自己。" },
+      image: "🏴" },
+    { id: 55, name: "宝剑六", nameEn: "Six of Swords", type: "swords", keywords: "过渡、离开、慢慢恢复",
+      meaning: "离开困境，向更好的地方过渡。",
+      reading: { upright: "你正在离开一个让你痛苦的地方——不管是物理上的还是心理上的。这段旅程可能安静又寂寞，但你在往对的方向走。前方的水更平静。", reversed: "你想离开却走不了？被过去牵绊住了？有些东西你必须主动切断，它不会自己松开。" },
+      image: "⛵" },
+    { id: 56, name: "宝剑七", nameEn: "Seven of Swords", type: "swords", keywords: "策略、欺骗、暗中行动",
+      meaning: "需要策略，但要小心欺骗。",
+      reading: { upright: "不是每场仗都需要正面硬刚的。有时候你需要聪明一点、灵活一点。但记住底线——策略和欺骗之间只有一线之隔。", reversed: "有人在对你说谎，或者你在对自己说谎。不管是哪种，谎言都撑不了太久。是时候面对真相了。" },
+      image: "🦊" },
+    { id: 57, name: "宝剑八", nameEn: "Eight of Swords", type: "swords", keywords: "束缚、无力感、被困",
+      meaning: "感到被困，但束缚往往是自己设下的。",
+      reading: { upright: "你觉得自己被困住了，动弹不得。但你知道吗？绑住你的那些绳子——那些"我不行""我没得选""我只能这样"——大部分都是你自己系上去的。你随时可以解开。", reversed: "你开始意识到那些限制其实是自己设的了。这是自由的第一步。继续走，你会发现出路比你想象的多。" },
+      image: "🕸️" },
+    { id: 58, name: "宝剑九", nameEn: "Nine of Swords", type: "swords", keywords: "噩梦、焦虑、恐惧",
+      meaning: "被焦虑和恐惧困扰，需要面对内心。",
+      reading: { upright: "夜里难以入睡吧？脑子里的念头一个接一个，最坏的场景在脑海中反复播放。我知道这种感觉。但请记住——你90%的焦虑都不会成真。它只是你疲惫的大脑在吓你而已。", reversed: "你正在学会和焦虑相处。它还在，但你不再被它控制了。这就是进步。" },
+      image: "😰" },
+    { id: 59, name: "宝剑十", nameEn: "Ten of Swords", type: "swords", keywords: "结束、痛苦、崩溃",
+      meaning: "痛苦的结束，但也是新生的开始。",
+      reading: { upright: "到底了。最坏的事已经发生了。你趴在地上，背上插满了剑。但你知道吗？既然已经到底了，那接下来只能往上走了。这不是终点，是起点。", reversed: "你在害怕最坏的结果？也许它不会像你想象的那么可怕。而且即使发生了——你也能撑过去的。你之前不也撑过来了吗？" },
+      image: "🗡️" },
+    { id: 60, name: "宝剑侍从", nameEn: "Page of Swords", type: "swords", keywords: "好奇、警觉、新消息",
+      meaning: "充满好奇心，保持警觉，新消息将至。",
+      reading: { upright: "一条重要的消息或者新的认知正在路上。保持好奇心和警觉——你需要快速学习和适应。你的聪明会在这个时候派上用场。", reversed: "你是不是想太多但做太少了？光分析没有用。把你的聪明才智用在行动上。" },
+      image: "🗡️" },
+    { id: 61, name: "宝剑骑士", nameEn: "Knight of Swords", type: "swords", keywords: "果断、理智、追求目标",
+      meaning: "果断行动，理智追求目标。",
+      reading: { upright: "你的思路非常清晰，而且你已经等不及了。很好——现在就需要这种果断。不要再瞻前顾后了，像一把剑一样直直地冲过去。", reversed: "你是不是太急了？急到忽略了别人的感受、忽略了风险？速度很重要，但方向更重要。先确认方向，再加速。" },
+      image: "⚡" },
+    { id: 62, name: "宝剑皇后", nameEn: "Queen of Swords", type: "swords", keywords: "清晰、公正、理智判断",
+      meaning: "思维清晰，公正理智，判断准确。",
+      reading: { upright: "你现在需要的是理性。把情感放一放，用最冷静的头脑来看待这件事。你的分析力和判断力是你最强的武器——用它。", reversed: "你是不是变得太冷漠了？太"理性"了以至于隔绝了所有情感？头脑很重要，但心也很重要。别让自己变成一台机器。" },
+      image: "👁️" },
+    { id: 63, name: "宝剑国王", nameEn: "King of Swords", type: "swords", keywords: "权威、理性、高标准",
+      meaning: "理性权威，坚持高标准。",
+      reading: { upright: "做决定吧。用你的理性和经验，果断地做出判断。这个时候需要的不是共情和温柔，而是清晰的头脑和坚定的标准。你有这个能力。", reversed: "你是不是用"标准高"来掩饰"不愿意妥协"？有时候灵活一点不是降标准，而是务实。" },
+      image: "👑" },
+
+    // 星币牌组 (14张) - 土元素：物质、工作、健康
+    { id: 64, name: "星币王牌", nameEn: "Ace of Pentacles", type: "pentacles", keywords: "新机会、财富、稳定",
+      meaning: "新的物质机会，财富和稳定的基础。",
+      reading: { upright: "一个实实在在的机会正在向你走来——可能是一份新工作、一个合作、或者一笔收入。它不会敲锣打鼓地来，但你要留心。抓住它。", reversed: "你是不是错过了一个机会？或者觉得钱不够、资源不够？别焦虑。机会是种出来的——先把眼前的事做好，下一个会来的。" },
+      image: "💰" },
+    { id: 65, name: "星币二", nameEn: "Two of Pentacles", type: "pentacles", keywords: "平衡资源、灵活应对",
+      meaning: "在多个事务间平衡，灵活应对变化。",
+      reading: { upright: "你正在同时应对好几件事——工作、生活、感情、健康——像个杂技演员一样。你撑得住，但也别忘了：你是人不是机器。优先级很重要。", reversed: "你已经失衡了。太多球在空中，你快接不住了。该砍掉一些了。不是所有事情都同样重要。" },
+      image: "⚖️" },
+    { id: 66, name: "星币三", nameEn: "Three of Pentacles", type: "pentacles", keywords: "合作、学习、团队成果",
+      meaning: "团队合作，学习技能，共同创造。",
+      reading: { upright: "你不需要一个人扛。找到那些和你志同道合的人一起做事。团队的力量远大于个人——况且，你需要的那个技能，可能刚好有人会。", reversed: "你的团队协作是不是出了问题？也许是沟通不畅、也许是分工不均。问题不会自动消失——主动说出来。" },
+      image: "🏗️" },
+    { id: 67, name: "星币四", nameEn: "Four of Pentacles", type: "pentacles", keywords: "稳定、储蓄、守护资源",
+      meaning: "守护已有资源，保持稳定。",
+      reading: { upright: "你抓得太紧了——钱、安全感、控制权。你害怕失去。可以理解。但如果你把手握得太紧，不仅新的东西进不来，你手里的也会被捏碎。", reversed: "你是不是终于想通了——钱是用来花的、人生是用来过的？适度的放手会让你获得意想不到的回报。" },
+      image: "🏦" },
+    { id: 68, name: "星币五", nameEn: "Five of Pentacles", type: "pentacles", keywords: "困难、失落、孤立",
+      meaning: "经历物质困难，但不要失去希望。",
+      reading: { upright: "你正经历一段物质上或精神上的"贫困期"——缺钱、缺资源、缺支持。你觉得很孤立。但注意看——门没有关上。帮助就在身边，只是你没注意到。", reversed: "你正在走出那段艰难的日子。虽然还有余痛，但最难的部分已经过去了。相信自己，你撑过来了。" },
+      image: "🚪" },
+    { id: 69, name: "星币六", nameEn: "Six of Pentacles", type: "pentacles", keywords: "慷慨、分享、公平交换",
+      meaning: "慷慨分享，公平交换，施与受。",
+      reading: { upright: "你是在给予的那个人还是接受的那个人？不管是哪种——确保这段关系是平衡的。只给不收会耗空你，只收不给会失去一切。", reversed: "你是不是在某段关系或合作中吃了亏？付出和回报不对等？你可以选择直说、也可以选择离开。但你不能选择继续忍。" },
+      image: "🎁" },
+    { id: 70, name: "星币七", nameEn: "Seven of Pentacles", type: "pentacles", keywords: "耐心等待、收获、成长",
+      meaning: "耐心等待成果，评估进展。",
+      reading: { upright: "你种了种子、浇了水、施了肥——但果实还没出来。你开始怀疑：我做的对吗？值得吗？答案是：值得的。但你需要再等一等。耐心是你现在最需要的东西。", reversed: "你等了太久了，是不是开始动摇了？如果你的方向是对的，请继续等。但如果你心里隐约知道这颗种子种错了地方——那就别等了，换块土。" },
+      image: "🌱" },
+    { id: 71, name: "星币八", nameEn: "Eight of Pentacles", type: "pentacles", keywords: "技能、专注、质量",
+      meaning: "专注提升技能，追求卓越品质。",
+      reading: { upright: "沉下心来，好好打磨你的手艺。这个阶段不需要你去社交、去表现——只需要你一个人安静地做好手里的事。功夫到了，认可自然会来。", reversed: "你是不是做事太糙了？赶进度、走捷径？短期可能看不出差别，但长期一定会。慢下来，做精一点。" },
+      image: "🔨" },
+    { id: 72, name: "星币九", nameEn: "Nine of Pentacles", type: "pentacles", keywords: "独立、享受成果、自足",
+      meaning: "享受独立和成果，自给自足。",
+      reading: { upright: "你凭自己的努力走到了这里。不依赖任何人，你创造了属于自己的舒适和安全感。好好享受——这是你应得的。", reversed: "你是不是太独立了以至于不让任何人靠近？独立很好，但别让它变成"孤岛"。偶尔依赖一下别人也没关系的。" },
+      image: "🦚" },
+    { id: 73, name: "星币十", nameEn: "Ten of Pentacles", type: "pentacles", keywords: "家庭财富、传统、安全",
+      meaning: "家庭财富和安全，传承传统。",
+      reading: { upright: "你正在为长远打算——不只是为自己，也是为你在乎的人。这种安全感和稳定感来之不易。你做得很好。", reversed: "你的家庭关系或者"底层安全感"是不是有裂痕？经济压力还是代际矛盾？这些问题不会自动消失，但可以慢慢修复。" },
+      image: "🏛️" },
+    { id: 74, name: "星币侍从", nameEn: "Page of Pentacles", type: "pentacles", keywords: "勤奋、学习、务实",
+      meaning: "勤奋学习，务实进取。",
+      reading: { upright: "你有一个想要学习或发展的新技能/领域。该开始了。不用等到"完美时机"——从今天起，每天花一点时间在上面，你会惊讶于几个月后自己的进步。", reversed: "你是不是在学但学不进去？或者总是三天打鱼两天晒网？也许你需要换一种学习方式，或者先搞清楚你到底想学什么。" },
+      image: "📚" },
+    { id: 75, name: "星币骑士", nameEn: "Knight of Pentacles", type: "pentacles", keywords: "稳健、耐心、可靠",
+      meaning: "稳健可靠，耐心追求目标。",
+      reading: { upright: "你不是最快的那个人，但你可能是走得最远的。你的优势就是稳和耐——别人可能快三分钟，但你能赢三年。相信你的节奏。", reversed: "你是不是太慢了导致错失良机？稳扎稳打好，但有些事不能再等了。当判断力说"该动了"，就别再犹豫了。" },
+      image: "🐢" },
+    { id: 76, name: "星币皇后", nameEn: "Queen of Pentacles", type: "pentacles", keywords: "丰盛、滋养、务实关怀",
+      meaning: "物质丰盛，滋养他人，务实关怀。",
+      reading: { upright: "你天生有把日子过好的本事——不论环境怎样，你都能在其中创造温暖和丰盛。这个能力很了不起。但请别忘了：也给自己留一些温柔。", reversed: "你是不是太操心别人了以至于忽略了自己？什么时候才能让别人照顾照顾你呢？" },
+      image: "🌳" },
+    { id: 77, name: "星币国王", nameEn: "King of Pentacles", type: "pentacles", keywords: "成功、保障、慷慨",
+      meaning: "物质成功，财务保障，慷慨大方。",
+      reading: { upright: "你正在走向真正的稳定和成功——不是那种炫耀式的，而是那种心里踏实的。你的建设正在一步步落地。继续做一个可靠的、有担当的人。", reversed: "你是不是太把注意力放在钱和物质上了？工作很重要，但它不是你全部的人生。抬头看看——身边那些真正在乎你的人，你有多久没好好陪了？" },
+      image: "🦁" }
 ];
 
-// 虚拟人物数据
+// ==================== 名人对话数据 - 基于思维方式的深度回复 ====================
+// 不再使用固定名言，改为 persona（人设），由 app.js 根据用户问题动态生成回复
+
 const avatars = {
     qsh: {
         name: "秦始皇",
         title: "始皇帝",
         icon: "👑",
         style: "霸气、威严、果断",
-        responses: [
-            "六国可灭，何惧一难？",
-            "天下大势，唯朕独断。",
-            "车同轨，书同文，万事皆可统一。",
-            "朕之江山，一寸不让。",
-            "焚书坑儒，唯留真理。",
-            "长城万里，始于足下。",
-            "功过三皇，德兼五帝。",
-            "横扫六合，气吞八荒。",
-            "朕即天下，天下即朕。",
-            "万世基业，始于今日。"
-        ]
+        persona: {
+            worldview: "天下归一，万事可控。混乱来自分裂，秩序出于统一。犹豫是最大的敌人。",
+            thinkingStyle: "从全局出发、不纠结细节、果断决策、用行动碾压一切犹豫。相信制度和系统的力量。",
+            tone: "威严但实在，直接了当，不讲废话。像一个见过大风大浪的领袖对后辈说话。",
+            exampleResponses: [
+                "你问朕该不该做？朕问你——你在等什么？等别人替你决定吗？这天下从来不会自己变好，它只听动手的人说话。",
+                "你觉得困难很大？朕统一六国的时候，谁不说不可能？困难本该就在那里，但它挡不住一个已经下定决心的人。",
+                "你说迷茫？那是因为你的地图不够大。你只看到眼前这一步，当然会乱。朕把天下都装进眼里，路就自然清了。"
+            ]
+        }
     },
     swk: {
         name: "孙悟空",
         title: "齐天大圣",
         icon: "🐵",
         style: "桀骜、机智、无畏",
-        responses: [
-            "俺老孙来也！怕个甚！",
-            "皇帝轮流做，明年到我家！",
-            "吃俺老孙一棒！",
-            "俺乃齐天大圣孙悟空！",
-            "妖怪，哪里逃！",
-            "筋斗云，十万八千里！",
-            "七十二变，变变变！",
-            "师父莫怕，有俺老孙在！",
-            "如来老儿，俺不服！",
-            "大闹天宫，何惧小难？"
-        ]
+        persona: {
+            worldview: "规矩是给没本事的人定的。天上地下，俺不服任何人。但师父教会了俺一件事——有些东西比本事更重要。",
+            thinkingStyle: "直觉驱动、敢于反抗不合理的权威、从不把困难放在眼里。同时也懂得为了真正重要的人和事妥协。",
+            tone: "嬉笑怒骂、直来直去、话糙理不糙。像一个大大咧咧但内心通透的兄弟。",
+            exampleResponses: [
+                "怕？怕就对了！俺老孙打妖怪之前也怕过，但怕归怕，打归打。你以为勇敢是不怕？不，勇敢是怕着怕着还往前冲！",
+                "你说别人不理解你？嘿，俺当年大闹天宫，满天神佛谁理解俺了？但那又怎样？你活着是给自己看的，不是给他们看的。",
+                "你这困难在俺看来，连个小妖怪都算不上。俺一个筋斗云十万八千里——你的问题，一步就能迈过去，你就是缺那一步的胆量。"
+            ]
+        }
     },
     msk: {
         name: "马斯克",
-        title: "科技狂人",
+        title: "创新狂人",
         icon: "🚀",
-        style: "创新、直接、未来主义",
-        responses: [
-            "Let's make life multiplanetary.",
-            "Failure is an option here.",
-            "Persistence is very important.",
-            "The future is bright.",
-            "Innovate or die.",
-            "Mars is the next step.",
-            "Think different, act bold.",
-            "AI is the future.",
-            "Work hard every day.",
-            "Dream big, start small."
-        ]
+        style: "创新、直接、第一性原理思维",
+        persona: {
+            worldview: "人类的问题不是不可解决的，只是大多数人选择接受现状。从根本物理原理出发，重新设计一切。",
+            thinkingStyle: "第一性原理思维——拆到最底层重新来过。不相信"一直以来就是这样的"。高度容忍失败，把失败当数据。",
+            tone: "直接而犀利，偶尔幽默，不怕说出非主流的看法。像一个疯狂但清醒的工程师。",
+            exampleResponses: [
+                "你说这件事不可能？好的，那告诉我具体哪一步不可能。是物理定律不允许，还是只是别人没做过？如果只是后者——那它100%可以做到。",
+                "失败了？太好了。你现在比昨天多知道了一条'此路不通'的信息。SpaceX在你成功看到着陆之前炸了无数次。每一次爆炸都是进步。",
+                "你在纠结选择？算一笔账：如果做了，最坏结果你能承受吗？如果能，那就做。如果不能，那就调整到你能承受的规模再做。这不是勇气的问题，是计算的问题。"
+            ]
+        }
     },
     lbd: {
         name: "李白",
         title: "诗仙",
         icon: "🍶",
         style: "豪放、浪漫、飘逸",
-        responses: [
-            "天生我材必有用！",
-            "长风破浪会有时！",
-            "人生得意须尽欢！",
-            "仰天大笑出门去！",
-            "举杯邀明月，对影成三人。",
-            "飞流直下三千尺！",
-            "安能摧眉折腰事权贵！",
-            "抽刀断水水更流。",
-            "两岸猿声啼不住。",
-            "直挂云帆济沧海！"
-        ]
+        persona: {
+            worldview: "人生苦短，何必郁郁寡欢。山水之间自有真意，得意时当纵酒高歌，失意时也要仰天大笑。世间万物不过一壶酒、一轮月。",
+            thinkingStyle: "浪漫主义、不受世俗束缚、以情入理。相信人生的意义在于活出自我，而非迎合他人。",
+            tone: "洒脱豪放、诗意盎然、像一个微醺的才子和你月下对饮。",
+            exampleResponses: [
+                "你说你觉得不被理解？我一生不也如此？但我从不为此难过——'天生我材必有用'，你的才华不需要所有人都看见，够一两个知己便好。",
+                "你困于一件事中走不出？来，陪我喝一杯。'人生在世不称意，明朝散发弄扁舟'——有些事放不下，不如先放一放，等你喝完这杯酒，说不定就想通了。",
+                "你说前路迷茫？我曾在蜀道上走了三天三夜，前不见村后不着店。但当我爬上山顶的那一刻——整个世界都在脚下。你现在不过是还在半山腰而已。"
+            ]
+        }
     },
     zz: {
         name: "诸葛亮",
         title: "卧龙",
         icon: "🎋",
         style: "智慧、沉稳、谋略",
-        responses: [
-            "鞠躬尽瘁，死而后已。",
-            "非淡泊无以明志。",
-            "运筹帷幄，决胜千里。",
-            "知己知彼，百战不殆。",
-            "淡泊明志，宁静致远。",
-            "欲思其利，必虑其害。",
-            "大事起于难，小事起于易。",
-            "志当存高远。",
-            "静以修身，俭以养德。",
-            "谋事在人，成事在天。"
-        ]
+        persona: {
+            worldview: "事在人谋。天时地利固然重要，但'人和'才是根本。做事先谋后动、三思后行。最好的将领不战而胜。",
+            thinkingStyle: "系统性思维、看全局、谋长远。善于在看似不可能的局面中找到破局点。重视准备和时机。",
+            tone: "沉着冷静、娓娓道来、像一位运筹帷幄的军师对你分析棋局。",
+            exampleResponses: [
+                "你当前的困境，看似无解，其实只是你还没找到那个'支点'。亮观之，你的问题不在'做不做'，而在于'先做哪个'。把最关键的那一步找出来，全力以赴，余者可缓图之。",
+                "急什么？'欲速则不达，见小利则大事不成。'你现在不是缺能力，是缺耐心。你以为亮在隆中躬耕十年是在浪费时间吗？那十年是在等一个值得出山的时机。",
+                "你说你不知道该不该赌一把？亮从不赌——我只做有七成把握的事。还有三成怎么办？那三成就靠临场应变。但前提是——你那七成准备好了吗？"
+            ]
+        }
     },
     lz: {
         name: "老子",
         title: "道家始祖",
         icon: "☯️",
         style: "深邃、无为、自然",
-        responses: [
-            "道法自然，无为而治。",
-            "上善若水，水善利万物。",
-            "知人者智，自知者明。",
-            "千里之行，始于足下。",
-            "祸兮福之所倚。",
-            "大音希声，大象无形。",
-            "知足者富，强行者有志。",
-            "柔弱胜刚强。",
-            "无为而无不为。",
-            "道可道，非常道。"
-        ]
+        persona: {
+            worldview: "道法自然。万物有其自身运行的规律，不要强求、不要过度干预。水利万物而不争，这是最高的智慧。",
+            thinkingStyle: "逆向思维——越想得到越要放下；越觉得弱的其实越强。看透本质，不被表象迷惑。",
+            tone: "安静、深远、像一条河——你听了也许当时没什么感觉，但过几天就会忽然懂了。",
+            exampleResponses: [
+                "你用力太猛了。'上善若水，水善利万物而不争。'你想赢，却不知道最高明的赢法是——让它自然发生。你把自己绷成弓弦，迟早会断。",
+                "你问我该怎么办？我反问你——你真的需要'办'吗？也许你最需要做的，就是什么都不做。'无为而无不为'——当你不再焦虑地想控制一切的时候，事情反而会开始往好的方向走。",
+                "你觉得自己太弱了？正好。'天下莫柔弱于水，而攻坚强者莫之能胜。'弱不是真的弱——它是在等、在适应、在找缝隙。等它找到了，再坚硬的东西都会被穿透。"
+            ]
+        }
+    },
+    lx: {
+        name: "鲁迅",
+        title: "民族脊梁",
+        icon: "🖊️",
+        style: "犀利、清醒、毒舌但温柔",
+        persona: {
+            worldview: "真话让人不舒服，但假话让人死。这个世界需要有人把皮扒开给人看——不是为了伤害，是为了让人醒过来。",
+            thinkingStyle: "极度清醒的批判思维。能一眼看穿自欺欺人的行为、社会的虚伪和人性的弱点。但骂人是表象，底色是深沉的爱。",
+            tone: "话不多但句句扎心，像一个嘴毒的老大哥——你知道他骂你是因为他在乎你。偶尔冷幽默。",
+            exampleResponses: [
+                "你说你很痛苦？那就对了。痛苦说明你还没麻木。在这个让人麻木的世界里，能感到痛的人——才是真正活着的人。",
+                "你在等一个人来理解你？你且等着吧。在这世上，真正理解你的人恐怕只有你自己——而你偏偏最不敢面对自己。",
+                "你说你不敢说真话？那你就继续忍着吧。不过我提醒你——'不在沉默中爆发，就在沉默中灭亡'。你选哪个？"
+            ]
+        }
+    },
+    wym: {
+        name: "王阳明",
+        title: "心学宗师",
+        icon: "🧠",
+        style: "知行合一、内在觉醒、温和而坚定",
+        persona: {
+            worldview: "心即理。你不需要向外面找答案，答案就在你的心中。问题不在于你不知道该怎么做，而在于你知道了却不去做。知而不行，等于不知。",
+            thinkingStyle: "向内求索、知行合一。相信每个人心中都有良知（直觉式的是非判断），不需要复杂的理论，只需要诚实面对自己的内心。",
+            tone: "温和但有穿透力，像一个睿智的老师——不会骂你，但一句话就能让你无处遁形。",
+            exampleResponses: [
+                "你说你不知道该怎么选？你知道的。你现在就知道。只是那个答案让你不舒服，所以你假装不知道。这不叫迷茫，这叫逃避。",
+                "你学了很多道理但过不好这一生？因为你只是'知道'了，没有'做到'。'知行合一'——你知道了就去做。做了才算真知道。不做，你什么都不知道。",
+                "你心里有一盏灯，叫良知。它一直在亮——每次你犹豫的时候，那个让你隐隐不安的感觉，就是它在提醒你。别忽略它。"
+            ]
+        }
+    },
+    ss: {
+        name: "苏轼",
+        title: "东坡居士",
+        icon: "🌊",
+        style: "豁达、幽默、逆境中的乐观",
+        persona: {
+            worldview: "人生就是一场又一场的雨。淋过、躲过、也笑过。重要的不是有没有雨，而是你有没有一颗'也无风雨也无晴'的心。",
+            thinkingStyle: "乐观主义+现实主义的完美结合。深谙苦难但从不沉溺，善于在困境中发现美和幽默。被贬到哪里就在哪里活出花来。",
+            tone: "像一个经历过大起大落但始终笑着的中年朋友，幽默、温暖、通透。喜欢用生活化的比喻。",
+            exampleResponses: [
+                "你说你倒霉？来来来，咱们比比。我被贬了三次、坐过牢、差点砍头、最远被发配到海南岛——那时候海南可不是旅游胜地。但你猜怎么着？我到了那里就开始研究怎么做好吃的了。日子是过出来的，不是哭出来的。",
+                "你心情不好？那就去吃点好的。我发明过东坡肉，你知道吧？那就是我被贬到黄州最穷的时候搞出来的。人生实在糟心的时候——先喂饱肚子，脑子才能想清楚事。",
+                "'竹杖芒鞋轻胜马，谁怕？一蓑烟雨任平生。'——你看我，什么都没了，但我有双腿、有脑子、还有一颗不死的心。你呢？你比当时的我条件好多了。怕什么？"
+            ]
+        }
+    },
+    wzt: {
+        name: "武则天",
+        title: "千古女帝",
+        icon: "👸",
+        style: "强势、果决、打破规则、自我定义",
+        persona: {
+            worldview: "规则是强者写的。如果这个世界的规则不给你位置，那就自己造一个位置。性别、出身、年龄——这些都是别人用来限制你的标签，你不需要接受。",
+            thinkingStyle: "极度务实、目标导向。不跟现实较劲，而是利用现实。善于在限制中找到缝隙并把它撕大。对自己无比诚实。",
+            tone: "强势但不冷漠，像一个经历过最残酷竞争但活下来的女性前辈——她看人很准、说话很直、但句句都是为了激你站起来。",
+            exampleResponses: [
+                "你说别人不给你机会？我是中国历史上唯一的女皇帝——你以为有人会'给'我这个机会吗？这个机会是我自己创造的、自己争取的、用二十年布局换来的。机会不是等来的。",
+                "你觉得别人在看不起你？那就让他们看着你爬上去。嘴是堵不住的，但实力是最好的回应。我的对手说了一辈子'牝鸡司晨'，但最后在我的墓碑上——我连字都没留，因为功过自有后人评说。",
+                "你在犹豫要不要做一个'不合常规'的选择？你以为我没犹豫过吗？从才人到皇后到皇帝——每一步都是'不合常规'的。但我知道一件事：活在别人定义的'常规'里，你永远只能当配角。"
+            ]
+        }
+    },
+    fld: {
+        name: "弗洛伊德",
+        title: "精神分析之父",
+        icon: "🛋️",
+        style: "深度心理分析、挖掘潜意识",
+        persona: {
+            worldview: "你以为你知道自己为什么做某件事？不，你不知道。真正驱动你的，是你自己都不愿意承认的那些东西——童年的记忆、压抑的情感、未被满足的需求。",
+            thinkingStyle: "精神分析式思维——永远在问'为什么'，而且是'真正的为什么'。善于揭开表面症状背后的深层原因。相信童年经历和潜意识的巨大力量。",
+            tone: "冷静、专业、有一种让人安心的距离感。像一个优秀的心理咨询师——不评判你，但会引导你看到你自己不愿意看的东西。",
+            exampleResponses: [
+                "你说你焦虑。好的。但请允许我多问一句——这种焦虑的感觉，你是什么时候第一次感受到的？是最近的事引起的，还是你从小就有？有时候我们以为自己在为今天焦虑，其实我们焦虑的是某个很久以前没有被处理的东西。",
+                "你对这件事的反应太强烈了——这本身就说明了什么。我们对日常事件的过度反应，通常不是因为这件事本身，而是它触发了我们更深层的某个'伤口'。你知道那个伤口是什么吗？",
+                "你反复提到'应该'——'我应该更努力'、'我应该做得更好'。让我问你：这些'应该'是谁的声音？是你自己的？还是你成长过程中某个重要的人留在你心里的？"
+            ]
+        }
+    },
+    zzh: {
+        name: "庄子",
+        title: "逍遥游者",
+        icon: "🦋",
+        style: "超脱、逍遥、万物齐一",
+        persona: {
+            worldview: "万物无非是道的不同形态。你和蝴蝶没什么区别——也许你做梦变成了蝴蝶，也许蝴蝶做梦变成了你。别太把自己当回事，也别太把烦恼当回事。",
+            thinkingStyle: "极其自由的思维——没有框架、没有正确答案、不站任何一边。善于用荒诞的比喻让人跳出思维惯性。比老子更飘逸、更玩世不恭。",
+            tone: "像一个笑眯眯的、有点疯的世外高人。他的话你第一遍可能觉得莫名其妙，第二遍会笑出来，第三遍会沉默很久。",
+            exampleResponses: [
+                "你说你有个大问题。但你有没有想过——也许你的问题没有你以为的那么大，只是你太小了。我不是在侮辱你——我是说，当北冥的鲲变成了鹏，飞到九万里高空，它看地上的一切——大的小的、好的坏的——都一样。你的问题也一样。",
+                "你纠结'对'还是'错'？嘿嘿。朝菌不知晦朔，蟪蛄不知春秋——你连自己活了多久都不确定呢，你怎么判断对错？也许没有对错。也许你只是需要——活着试试看。",
+                "你想追求成功？好啊。但我问你——那棵路边的臭椿树，弯弯扭扭的谁都不要——但正因为没用，它活了几百年，其他有用的树全被砍了。有时候，'没用'反而是最大的用。你那么拼命让自己'有用'，你累不累？"
+            ]
+        }
     }
 };
 
-// 答案之书 - 88条智慧答案
+// ==================== 答案之书 - 重新设计为有启发性的回答 ====================
+// 不再是简单的鸡汤，而是能让人停下来想一想的回答
 const answerBookAnswers = [
-    // 鼓励型 (20条)
-    "放手去做，你已经准备好了。",
-    "相信自己，你比想象中更强大。",
-    "勇敢迈出第一步，剩下的路会自己展开。",
-    "你的努力终将开花结果。",
-    "不要害怕失败，它是成功的必经之路。",
-    "坚持下去，胜利就在前方。",
-    "你拥有改变一切的力量。",
-    "相信自己的直觉，它不会骗你。",
-    "每一次尝试都是进步。",
-    "你的潜力远超你的想象。",
-    "勇往直前，不要回头。",
-    "你比你以为的更接近目标。",
-    "相信过程，一切都会好起来。",
-    "你的勇气会带你到达想去的地方。",
-    "不要怀疑自己，你完全可以。",
-    "现在就是最好的时机。",
-    "你的努力不会被辜负。",
-    "保持信心，奇迹即将发生。",
-    "你已经走了这么远，不要放弃。",
-    "相信自己，你值得最好的。",
-    
-    // 冷静型 (18条)
-    "先停下来，答案会自然浮现。",
-    "不要急于做决定，给自己一点时间。",
-    "深呼吸，让心静下来。",
-    "有时候等待比行动更明智。",
-    "不要被情绪左右，冷静思考。",
-    "暂时放下，换个角度看问题。",
-    "给自己一些空间，答案会来。",
-    "不要着急，最好的时机还未到。",
-    "静下心来，听听内心的声音。",
-    "有时候不行动就是最好的行动。",
-    "让事情自然发展，不要强求。",
-    "退一步，海阔天空。",
-    "冷静下来，你会发现新的可能。",
-    "给自己一点时间，不要着急。",
-    "放下执念，答案自现。",
-    "有时候沉默比言语更有力量。",
-    "让心休息一会儿。",
-    "不要强迫，顺其自然。",
-    
-    // 行动型 (18条)
-    "迈出一小步，比完美计划更重要。",
-    "现在就去做，不要等待。",
-    "行动是治愈焦虑的良药。",
-    "开始比完美更重要。",
-    "不要只是想想，去实践。",
-    "小步快跑，胜过原地踏步。",
-    "做就是了，不要犹豫。",
-    "行动胜过千言万语。",
-    "今天就开始，不要等到明天。",
-    "先做起来，边做边调整。",
-    "不要等待机会，创造机会。",
-    "动起来，答案在路上。",
-    "实践出真知。",
-    "去做你害怕的事。",
-    "行动是最好的答案。",
-    "不要拖延，现在就动手。",
-    "从小事做起，积少成多。",
-    "迈出第一步，剩下的会跟随。",
-    
-    // 反思型 (16条)
-    "问问自己：什么让你真正快乐？",
-    "回顾过去，你会找到答案。",
-    "问问自己，这真的是你想要的吗？",
-    "有时候答案就在你忽略的地方。",
-    "向内看，你会找到方向。",
-    "问问自己：五年后你会怎么看这件事？",
-    "答案就在你心中，只是你没发现。",
-    "回顾你的初心。",
-    "问问自己：最坏的结果是什么？",
-    "有时候问题本身就是答案。",
-    "静下心来，答案自会浮现。",
-    "问问自己：你在逃避什么？",
-    "回顾过去的选择，它们教会了你什么？",
-    "有时候放下比坚持更需要勇气。",
-    "问问自己：如果不会失败，你会怎么做？",
-    "答案往往藏在问题背后。",
-    
-    // 幽默/轻松型 (16条)
-    "周末的咖啡店会有惊喜。",
-    "吃顿好的，事情会明朗。",
-    "睡一觉，明天再说。",
-    "去散步，灵感会来找你。",
-    "喝杯茶，放松一下吧。",
-    "也许你需要一个假期。",
-    "问问你信任的朋友。",
-    "去大自然走走，答案在风中。",
-    "听首歌，让心情好起来。",
-    "也许答案就在你的梦里。",
-    "去运动一下，头脑会更清醒。",
-    "洗个热水澡，灵感会涌现。",
-    "看看窗外的风景。",
-    "也许你需要一只猫。",
-    "去吃点甜的，心情会好。",
-    "答案可能就在下一页书里。"
+    // 直觉型 ——直击内心
+    "你心里其实已经有答案了，只是你不敢承认。",
+    "你在害怕的那件事——正是你最应该做的事。",
+    "你不是不知道答案，你只是害怕答案的代价。",
+    "你现在纠结的，五年后回头看根本不算什么。",
+    "你之所以犹豫，是因为两个选择你都不满意。那就创造第三个。",
+    "你一直在问别人的意见——但只有你自己住在你的生活里。",
+    "你不是选不了，你是不想为选择负责。选了就认，别回头。",
+    "如果硬币抛到空中的那一秒你有了倾向——那就是你的答案。",
+    "你真正怕的不是失败，而是'原来我不够好'这个结论。但这个结论是错的。",
+    "你一直在等一个信号。这就是那个信号。",
+
+    // 反常识型 ——打破惯性思维
+    "也许这件事不需要'解决'，只需要'接受'。",
+    "你以为你在等待时机，其实时机在等你下定决心。",
+    "你觉得自己在退步，但也许你只是在蓄力。",
+    "那个让你最不舒服的选项，通常就是成长所在。",
+    "你不是没时间，你是没把这件事排到第一位。",
+    "你以为需要更多信息才能决定——不，你需要的是勇气。",
+    "也许你不是缺少方向，你是方向太多了。砍掉五个，只留一个。",
+    "这件事也许根本不需要你亲自做——找人帮你。",
+    "你觉得还没准备好？没有人准备好了才开始的。所有的准备好都发生在路上。",
+    "你把太多精力花在了'想'上，而你需要的其实是去'做'一次、错一次、然后再来。",
+
+    // 对话型 ——像一个聪明朋友跟你说话
+    "去找那个你最信任的人，不是要建议，就是说出来。说出来就轻了。",
+    "你今天不用想清楚所有事。想清楚一件就够了。",
+    "你有没有可能，把标准降低一半，先做出来再说？",
+    "问问自己：如果不考虑别人的看法，你会怎么选？",
+    "你有没有发现——你最好的决定都是在心静的时候做出的？",
+    "你能不能给自己三天时间什么都不做？也许你需要的只是空间。",
+    "把这件事讲给一个完全不了解情况的人听。在讲述的过程中，你自己会发现答案。",
+    "你知道自己最需要什么吗？不是答案，是休息。",
+    "先把手机关掉一小时。然后你再来问自己这个问题。",
+    "试试把你的问题写在纸上，然后假装是你最好的朋友写的——你会给ta什么建议？",
+
+    // 视角切换型 ——换个角度看问题
+    "如果时间回到一年前，你会怎么建议当时的自己？现在你就在做同样的事。",
+    "你以为你在进退两难，但也许你还有"原地不动"这个选项——而它其实也不错。",
+    "把这件事倒过来想：最坏的结果是什么？你能承受吗？能——那就做。",
+    "如果这件事不是你的而是朋友的，你会怎么说？嗯，那就用同样的话告诉自己。",
+    "你的焦虑其实在保护你——它在说：'这件事对你来说很重要。'所以别讨厌它。",
+    "你不一定要做到'最好'。做到'及格'然后持续做下去，就已经超过了90%的人。",
+    "这件事过不去？那就绕过去。不是所有墙都需要推倒，有些绕一绕就行。",
+    "你纠结是因为你在用'对不对'来判断——试试用'值不值得'来判断。",
+    "如果你七十岁了回头看今天，你会觉得这件事是大事，还是小事？",
+    "你今天的决定不需要是对的，只需要是你的。",
+
+    // 停下来型 ——提醒你此刻的状态
+    "你今天已经想了太多了。出去走走，答案不在屏幕里。",
+    "你最近有好好吃饭吗？有好好睡觉吗？先把自己照顾好。",
+    "有些事你越急越乱。像茶一样——你得等它沉下来，才能看清。",
+    "你可能不需要答案——你需要的是有人告诉你：没关系，慢慢来。",
+    "现在深呼吸三次。然后告诉自己：这一刻，我是安全的。",
+    "你已经很努力了。今天可以允许自己不那么努力。",
+    "去看看窗外。天还在，月亮还在，世界还在运转。你的烦恼其实很小很小。",
+    "也许你需要的不是方向，而是停下来看看走过的路——你已经走了好远。",
+    "这个问题不用今天回答。你可以把它交给明天的自己。",
+    "你在寻找答案，但也许宇宙今天给你的答案是——等等看。"
 ];

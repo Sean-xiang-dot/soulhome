@@ -358,7 +358,88 @@
                         <h4>老子</h4>
                         <p>道法自然，无为而治</p>
                     </div>
+                    <div class="avatar-card" onclick="selectAvatar('lx')">
+                        <div class="avatar-image">🖊️</div>
+                        <h4>鲁迅</h4>
+                        <p>犀利毒舌，以笔为刀</p>
+                    </div>
+                    <div class="avatar-card" onclick="selectAvatar('wym')">
+                        <div class="avatar-image">🧠</div>
+                        <h4>王阳明</h4>
+                        <p>知行合一，内心觉醒</p>
+                    </div>
+                    <div class="avatar-card" onclick="selectAvatar('ss')">
+                        <div class="avatar-image">🌊</div>
+                        <h4>苏轼</h4>
+                        <p>豁达乐观，逆境中笑</p>
+                    </div>
+                    <div class="avatar-card" onclick="selectAvatar('wzt')">
+                        <div class="avatar-image">👸</div>
+                        <h4>武则天</h4>
+                        <p>打破规则，自我定义</p>
+                    </div>
+                    <div class="avatar-card" onclick="selectAvatar('fld')">
+                        <div class="avatar-image">🛋️</div>
+                        <h4>弗洛伊德</h4>
+                        <p>深入潜意识，洞察自我</p>
+                    </div>
+                    <div class="avatar-card" onclick="selectAvatar('zzh')">
+                        <div class="avatar-image">🦋</div>
+                        <h4>庄子</h4>
+                        <p>逍遥齐物，超脱世俗</p>
+                    </div>
+                    <div class="avatar-card custom-avatar-card" onclick="showCustomCreator()">
+                        <div class="avatar-image">✨</div>
+                        <h4>自创角色</h4>
+                        <p>定义你想对话的人</p>
+                    </div>
                 </div>
+            </div>
+            
+            <!-- 自创角色引导界面 -->
+            <div class="custom-creator hidden" id="custom-creator">
+                <div class="creator-header">
+                    <h3>创建你的专属对话角色</h3>
+                    <p class="creator-subtitle">回答几个问题，让ta活起来</p>
+                </div>
+                
+                <div class="creator-steps">
+                    <div class="creator-step active" id="creator-step-1">
+                        <p class="step-question">这个角色叫什么名字？</p>
+                        <input type="text" id="custom-name" placeholder="例：我奶奶、乔布斯、鸣人..." maxlength="10">
+                        <p class="step-hint">可以是真实人物、虚构角色、甚至你身边的人</p>
+                        <button class="creator-next-btn" onclick="creatorNext(1)">下一步 →</button>
+                    </div>
+                    
+                    <div class="creator-step hidden" id="creator-step-2">
+                        <p class="step-question">用一个 emoji 代表ta</p>
+                        <input type="text" id="custom-icon" placeholder="例：🧙‍♂️ 😎 👵 🤖" maxlength="4">
+                        <button class="creator-next-btn" onclick="creatorNext(2)">下一步 →</button>
+                    </div>
+                    
+                    <div class="creator-step hidden" id="creator-step-3">
+                        <p class="step-question">ta说话的风格是什么样的？</p>
+                        <input type="text" id="custom-style" placeholder="例：温柔但直接、嘴毒心软、高冷学霸..." maxlength="30">
+                        <p class="step-hint">想象ta跟你说话时的语气和感觉</p>
+                        <button class="creator-next-btn" onclick="creatorNext(3)">下一步 →</button>
+                    </div>
+                    
+                    <div class="creator-step hidden" id="creator-step-4">
+                        <p class="step-question">ta看待世界的方式是？</p>
+                        <textarea id="custom-worldview" placeholder="例：万事皆可解决，只要你够努力&#10;或：活着就是要开心，别太较真&#10;或：人生充满变数，要随时准备好" maxlength="100" rows="3"></textarea>
+                        <p class="step-hint">ta的核心信念是什么？ta会怎么看人生？</p>
+                        <button class="creator-next-btn" onclick="creatorNext(4)">下一步 →</button>
+                    </div>
+                    
+                    <div class="creator-step hidden" id="creator-step-5">
+                        <p class="step-question">ta会怎么安慰或鼓励你？给个例子</p>
+                        <textarea id="custom-example" placeholder="例：别怕，有我在。你已经很棒了。&#10;或：你又在想太多了吧？起来干活！" maxlength="150" rows="3"></textarea>
+                        <p class="step-hint">想象你难过时ta会说的一段话</p>
+                        <button class="creator-next-btn" onclick="createCustomAvatar()">✨ 创建角色</button>
+                    </div>
+                </div>
+                
+                <button class="back-btn creator-back" onclick="hideCustomCreator()">← 返回选择</button>
             </div>
             
             <div class="chat-interface hidden" id="chat-interface">
